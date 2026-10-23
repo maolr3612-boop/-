@@ -7,7 +7,7 @@ GitHub 仓库：`maolr3612-boop/-`，生产分支：`main`。
 
 1. 打开目标 Cloudflare 账户，进入 Workers & Pages，选择创建应用并导入 GitHub 仓库。
 2. 在 GitHub 授权 Cloudflare，仅选择 `maolr3612-boop/-` 即可。
-3. 选择仓库，使用 Worker 名称 `maolongrui-portfolio`，根目录为仓库根目录。
+3. 选择仓库，使用 Worker 名称 `worker`（与已提供的控制台项目一致），根目录为仓库根目录。
 4. 构建命令：`node scripts/build.mjs`。部署命令：`npx wrangler deploy`。
 5. 在 R2 创建 `maolongrui-portfolio-works` 存储桶，或将 `wrangler.jsonc` 的 bucket_name 改为已有桶的真实名称。绑定名必须是 `BUCKET`。
 6. 完成后，main 分支推送将触发自动构建部署。

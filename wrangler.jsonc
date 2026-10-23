@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
-  "name": "maolongrui-portfolio",
+  "name": "worker",
   "account_id": "199097a542173853dab199100f89cd8c",
   "main": "dist/server/index.js",
   "compatibility_date": "2026-10-23",

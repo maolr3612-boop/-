@@ -1,12 +1,32 @@
 [
   {
+    "id": "b54268cc-0089-4eab-ae85-59b72f519c62",
+    "title": "FitLead AI · 健身规划",
+    "category": "产品设计",
+    "description": "面向个人健身需求的 AI 规划产品界面，包含品牌首页、多步骤健康评估、咨询与方案页面，以深色视觉呈现清晰的健康管理流程。\n\n公开版本为前端作品演示，可浏览界面与评估表单流程。评估提交、AI 方案生成及账号数据服务尚未接入后台。",
+    "link": "https://fitlead-portfolio.maolr3612.workers.dev/",
+    "tags": ["AI 健身", "产品设计", "健康评估", "Web 应用"],
+    "coverAsset": "/assets/covers/fitlead.png",
+    "createdAt": "2026-10-23T08:02:00.000Z"
+  },
+  {
+    "id": "33e25f95-3ebe-488d-9654-5734e70f1145",
+    "title": "筑境 · 室内设计工作室",
+    "category": "产品设计",
+    "description": "室内设计品牌网站与空间设计工作台。通过简洁的品牌页面、项目案例与本地设计工具，连接空间灵感与设计实践，提供二维布局及三维空间交互体验。\n\n公开版本可体验品牌页面和浏览器本地设计工作台。账号登录、云端保存及 AI 服务尚未接入后台。",
+    "link": "https://zhujing-portfolio.maolr3612.workers.dev/",
+    "tags": ["室内设计", "品牌网站", "3D 交互", "设计工具"],
+    "coverAsset": "/assets/covers/zhujing.png",
+    "createdAt": "2026-10-23T08:01:00.000Z"
+  },
+  {
     "id": "864bcd76-3cf8-4de1-b0a4-cbdb6c066421",
     "title": "劳务公司",
     "category": "产品设计",
     "description": "江山市恒翔商务服务有限公司移动端网站作品。围绕劳务与职业中介服务，整合岗位浏览、岗位详情、资讯内容、服务流程与个人中心，提供清晰的移动端服务入口。\n\n点击「访问项目」可体验完整页面。作品中的登录、收藏和报名记录使用浏览器本地存储，属于前端交互演示。",
     "link": "https://stillform-designer.cocoafairy13.chatgpt.site/projects/laowu/index.html#/home",
     "tags": ["企业网站", "劳务服务", "移动端", "交互设计"],
-    "coverAsset": "/projects/laowu/cover.png",
+    "coverAsset": "/assets/covers/laowu.png",
     "createdAt": "2026-10-23T02:22:00.000Z"
   }
 ]

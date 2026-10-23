@@ -2,7 +2,17 @@
 
 黑金风格个人履历网站，包含八个双语知识模块、可连续环绕、俯仰与缩放的三维人物模型、云端可编辑作品库，以及「劳务公司」完整网站演示。
 
-现有网站：https://stillform-designer.cocoafairy13.chatgpt.site/
+当前入口：https://mao-longrui-website.cocoafairy13.chatgpt.site/
+
+入口内嵌 Cloudflare 生产网站 https://worker.maolr3612.workers.dev/ 。生产环境目前使用内置作品清单，未绑定 R2，作品编辑入口关闭；添加作品通过修改 `worker/imports.json` 并重新部署完成。下文的云端编辑说明适用于原有 Sites 身份与 R2 托管环境。
+
+## 公开作品演示
+
+- FitLead AI：https://fitlead-portfolio.maolr3612.workers.dev/ 。独立静态导出的前端，支持首页、评估步骤、咨询与隐私页面。评估提交、AI 方案及账户服务未接入后台，页面显示演示提示。
+- 筑境：https://zhujing-portfolio.maolr3612.workers.dev/ 。独立静态站点，提供品牌页与本地设计工作台；账号、云端保存与 AI 服务未接入后台。
+- 劳务公司：生产网站 `/projects/laowu/index.html#/home`，登录、收藏和报名使用浏览器本地存储。
+
+三张作品封面统一保存在 `web/assets/covers/`。独立演示部署文件位于同级工作区的 `portfolio-projects/fitlead` 与 `portfolio-projects/zhujing`，没有修改原本地项目或复制后端配置和密钥。两个演示使用独立 Cloudflare Worker；主站重新部署不会覆盖演示站点。
 
 ## 运行
 

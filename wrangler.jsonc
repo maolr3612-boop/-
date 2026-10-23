@@ -10,11 +10,5 @@
   },
   "build": {
     "command": "node scripts/build.mjs"
-  },
-  "r2_buckets": [
-    {
-      "binding": "BUCKET",
-      "bucket_name": "maolongrui-portfolio-works"
-    }
-  ]
+  }
 }

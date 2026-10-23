@@ -23,3 +23,7 @@ GitHub 仓库：`maolr3612-boop/-`，生产分支：`main`。
 原有 Sites 网站和云端作品数据不会随 GitHub 连接自动迁移。需要独立迁移已有记录与封面；源码中的「劳务公司」可由导入清单初始化。
 
 参考：https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/
+
+## 当前账户部署状态
+账户尚未开通 R2（Cloudflare API 10042）。当前 wrangler.jsonc 不绑定存储，Cloudflare 网站以只读形式展示源码内的作品，并保留完整劳务公司演示页。开通 R2 并创建桶后，可参考 wrangler.r2.example.jsonc 恢复绑定；编辑功能仍需先完成身份验证。
+

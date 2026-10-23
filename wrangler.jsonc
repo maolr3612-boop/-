@@ -10,5 +10,12 @@
   },
   "build": {
     "command": "node scripts/build.mjs"
+  },
+  "assets": {
+    "directory": "web",
+    "binding": "STATIC_ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
   }
 }

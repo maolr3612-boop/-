@@ -1,1 +1,14 @@
-{"name":"maolongrui-portfolio","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node --test scripts/library.test.mjs"}}
+{
+  "name": "maolongrui-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test scripts/*.test.mjs",
+    "build:viewer": "node scripts/bundle-viewer.mjs"
+  },
+  "devDependencies": {
+    "three": "0.186.1",
+    "esbuild": "0.28.2"
+  }
+}

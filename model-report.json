@@ -1,0 +1,20 @@
+{
+  "vertices": 32104,
+  "triangles": 64212,
+  "bytes": 8035696,
+  "bounds": [
+    [
+      -0.26196531588777816,
+      0.0009526221328250983,
+      -0.17159530931530753
+    ],
+    [
+      0.26075163217728914,
+      1.7940337337998358,
+      0.16261385257598704
+    ]
+  ],
+  "closed_surface": true,
+  "source_views": 8,
+  "method": "estimated silhouette loft with photographic texture"
+}

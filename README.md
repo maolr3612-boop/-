@@ -1,0 +1,42 @@
+# 毛龙锐个人网站
+
+黑金风格个人履历网站，包含八个双语知识模块、可拖动的八视角西装人物、云端可编辑作品库，以及「劳务公司」完整网站演示。
+
+现有网站：https://stillform-designer.cocoafairy13.chatgpt.site/
+
+## 运行
+
+需要 Node.js 22 或更新版本，无第三方运行依赖。
+
+```sh
+node scripts/build.mjs
+node --test scripts/library.test.mjs scripts/import.test.mjs
+node scripts/dev.mjs
+```
+
+本地访问 http://127.0.0.1:4173/ 。开发服务器模拟所有者身份，作品保存在内存中，重启后清除。请勿将开发服务器作为生产服务器使用。
+
+## 文件结构
+
+- `web/`：网站页面、样式、脚本和人物素材。
+- `web/projects/laowu/`：「劳务公司」网站及封面。
+- `worker/index.js`：生产服务入口，包含作品读写、上传校验及权限控制。
+- `worker/imports.json`：用户指定的作品导入清单。导入后保留云端编辑结果，删除后不再自动添加。
+- `scripts/build.mjs`：将静态页面与素材打包进 Worker，生成 `dist/server/index.js`。
+- `.openai/hosting.json`：现有 Sites 网站身份及 R2 存储绑定。
+
+## 托管与数据
+
+当前生产托管由 Sites 提供，使用名为 `BUCKET` 的 R2 绑定保存作品信息及封面。网站由 Sites 访问策略保护，只有已验证的所有者可修改作品。
+
+GitHub 仓库用于保存源码。完整功能不能直接部署到静态 GitHub Pages：作品库依赖 Worker、R2 和 Sites 注入的身份请求头。如果迁移到其他平台，需要迁移存储并替换身份验证，不能直接移除权限校验。
+
+将此仓库连接到原有 Sites 项目时，应保留 `.openai/hosting.json` 中的项目 ID，通过 Sites 工作流构建、保存版本并部署。请勿将任何令牌写入源码或提交到 GitHub。
+
+现有云端作品记录及用户后续上传的封面不包含在源码仓库中；更换存储平台时需另行迁移。
+
+## 作品管理
+
+登录现有网站后进入「作品库」：点击「添加作品」新建，点击「管理作品」编辑或删除。支持 PNG、JPG、WebP 封面，最大 5 MB，以及分类、标签、介绍和项目链接。
+
+人物环绕效果为 AI 生成的八视角图像序列，属于多角度展示。Google Fonts 无法访问时使用系统字体。

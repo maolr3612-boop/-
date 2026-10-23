@@ -1,0 +1,14 @@
+const canvas=document.querySelector('#field'),ctx=canvas.getContext('2d');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let w=0,h=0,angle=0,paused=reduce,pointer={x:0,y:0},rotation={x:0,y:0},last=0;
+const points=[];
+// A structured particle torus: disciplined rows, a fluid silhouette.
+for(let i=0;i<112;i++)for(let j=0;j<38;j++){const u=i/112*Math.PI*2,v=j/38*Math.PI*2;const wave=1+.07*Math.sin(3*u);const r=(1+.38*Math.cos(v))*wave;points.push({x:r*Math.cos(u),y:r*Math.sin(u),z:.38*Math.sin(v),i,j});}
+function size(){const r=canvas.getBoundingClientRect();w=r.width;h=r.height;const d=Math.min(devicePixelRatio||1,2);canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0);}
+new ResizeObserver(size).observe(canvas);
+canvas.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();pointer.x=((e.clientX-r.left)/r.width-.5)*.7;pointer.y=((e.clientY-r.top)/r.height-.5)*.5});
+canvas.addEventListener('pointerleave',()=>{pointer.x=pointer.y=0});
+const toggle=document.querySelector('#motion');function sync(){toggle.textContent=paused?'▶':'Ⅱ';toggle.setAttribute('aria-label',paused?'播放首页动画':'暂停首页动画');toggle.setAttribute('aria-pressed',String(paused))}sync();toggle.addEventListener('click',()=>{paused=!paused;sync()});
+function draw(t){const dt=Math.min(t-last,40);last=t;if(!paused)angle+=dt*.00012;rotation.x+=(pointer.x-rotation.x)*.035;rotation.y+=(pointer.y-rotation.y)*.035;ctx.clearRect(0,0,w,h);const ax=.88+rotation.y,ay=angle+rotation.x,az=-.49;const s=Math.min(w*.31,h*.30),out=[];for(const p of points){let x=p.x,y=p.y*Math.cos(ax)-p.z*Math.sin(ax),z=p.y*Math.sin(ax)+p.z*Math.cos(ax);let xx=x*Math.cos(ay)+z*Math.sin(ay);z=-x*Math.sin(ay)+z*Math.cos(ay);x=xx*Math.cos(az)-y*Math.sin(az);y=xx*Math.sin(az)+y*Math.cos(az);const perspective=5/(5+z);out.push({x:w*.5+x*s*perspective,y:h*.47+y*s*perspective,z,r:(.82+(z+1.5)*.15)*perspective,alpha:.24+(1.5-z)/3*.64});}out.sort((a,b)=>b.z-a.z);for(const p of out){ctx.fillStyle=`rgba(77,91,55,${p.alpha})`;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}requestAnimationFrame(draw)}requestAnimationFrame(draw);
+document.querySelector('#print').addEventListener('click',()=>window.print());
+const portrait=document.querySelector("#portrait"),stage=document.querySelector(".hero-art");let px=0,py=0,breathe=0,pt=0;stage.addEventListener("pointermove",e=>{const r=stage.getBoundingClientRect();px=((e.clientX-r.left)/r.width-.5);py=((e.clientY-r.top)/r.height-.5)});stage.addEventListener("pointerleave",()=>{px=py=0});function animatePortrait(t){const d=Math.min(t-pt,40);pt=t;if(!paused){breathe+=d*.00065;portrait.style.transform=`translate3d(${px*9}px,${Math.sin(breathe)*2.5+py*5}px,0) rotateY(${px*5}deg) rotateX(${-py*3}deg) scale(${1+Math.sin(breathe)*.003})`}requestAnimationFrame(animatePortrait)}requestAnimationFrame(animatePortrait);

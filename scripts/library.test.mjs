@@ -1,0 +1,15 @@
+import test from 'node:test';import assert from 'node:assert/strict';import worker from '../dist/server/index.js';import {MockBucket} from './mock-bucket.mjs';
+const origin='https://portfolio.test';const owner={'oai-authenticated-user-email':'maolr3612@gmail.com',Origin:origin,'X-Requested-With':'portfolio'};
+function form(values={}){const f=new FormData();for(const [k,v] of Object.entries({title:'测试智能体',category:'AI 智能体',description:'测试介绍',link:'https://example.com',tags:'AI,测试',...values}))f.set(k,v);return f}
+const call=(env,path,method='GET',body,headers=owner)=>worker.fetch(new Request(origin+path,{method,headers,body}),env);
+test('cloud portfolio create, read, edit, cover replacement, delete and authorization',async()=>{const env={BUCKET:new MockBucket()};await call(env,'/api/works');const baseline=env.BUCKET.store.size;let r=await call(env,'/api/session');assert.equal((await r.json()).canEdit,true);r=await call(env,'/api/session','GET',undefined,{});assert.equal((await r.json()).canEdit,false);
+assert.equal((await call(env,'/api/works','POST',form(),{})).status,403);assert.equal((await call(env,'/api/works','POST',form(),{...owner,Origin:'https://evil.test'})).status,403);
+assert.equal((await call(env,'/api/works','POST',form({link:'javascript:alert(1)'}))).status,400);
+const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jX1cAAAAASUVORK5CYII=','base64');const f=form();f.set('cover',new Blob([png],{type:'image/png'}),'cover.png');r=await call(env,'/api/works','POST',f);assert.equal(r.status,201);let {work}=await r.json();assert.ok(work.id);assert.equal(env.BUCKET.store.size,baseline+2);
+r=await call(env,work.coverUrl);assert.equal(r.status,200);assert.equal(r.headers.get('Content-Type'),'image/png');assert.deepEqual(new Uint8Array(await r.arrayBuffer()),new Uint8Array(png));
+r=await call(env,'/api/works');assert.equal((await r.json()).works.length,2);r=await call(env,'/api/works/'+work.id,'PUT',form({title:'更新作品',removeCover:'true',description:'<img src=x onerror=alert(1)>'}));assert.equal(r.status,200);work=(await r.json()).work;assert.equal(work.title,'更新作品');assert.equal(work.coverUrl,null);assert.equal(env.BUCKET.store.size,baseline+1);
+const bad=form();bad.set('cover',new Blob(['not a picture'],{type:'image/png'}),'fake.png');assert.equal((await call(env,'/api/works','POST',bad)).status,400);assert.equal(env.BUCKET.store.size,baseline+1);
+assert.equal((await call(env,'/api/works/'+work.id,'DELETE')).status,200);assert.equal(env.BUCKET.store.size,baseline);assert.equal((await call(env,'/api/works/'+work.id,'PUT',form())).status,404);assert.equal((await call({},'/api/works')).status,503);
+});
+test('built website retains resume, turntable and portfolio assets',async()=>{for(const path of ['/','/library.js','/library.css','/turntable.js','/assets/maolongrui-turntable.png'])assert.equal((await call({},path)).status,200);const html=await (await call({},'/')).text();assert.ok(html.includes('个人作品库'));assert.ok(html.includes('毛龙锐'));assert.ok(html.includes('id="turntable"'));assert.equal((await call({},'/no-such-file')).status,404)});
+

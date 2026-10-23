@@ -1,0 +1,12 @@
+[
+  {
+    "id": "864bcd76-3cf8-4de1-b0a4-cbdb6c066421",
+    "title": "劳务公司",
+    "category": "产品设计",
+    "description": "江山市恒翔商务服务有限公司移动端网站作品。围绕劳务与职业中介服务，整合岗位浏览、岗位详情、资讯内容、服务流程与个人中心，提供清晰的移动端服务入口。\n\n点击「访问项目」可体验完整页面。作品中的登录、收藏和报名记录使用浏览器本地存储，属于前端交互演示。",
+    "link": "https://stillform-designer.cocoafairy13.chatgpt.site/projects/laowu/index.html#/home",
+    "tags": ["企业网站", "劳务服务", "移动端", "交互设计"],
+    "coverAsset": "/projects/laowu/cover.png",
+    "createdAt": "2026-10-23T02:22:00.000Z"
+  }
+]

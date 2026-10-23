@@ -1,0 +1,4319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#1B5BD7" />
+  <meta name="description" content="江山市恒翔商务服务有限公司 - 自费出国留学中介、职业中介、劳务与家政服务。统一社会信用代码 91330881313581563C。" />
+  <title>江山市恒翔商务服务有限公司</title>
+  <style>
+/* ========== 恒翔商务服务 - 全局样式 ========== */
+
+:root {
+  --primary: #1B5BD7;
+  --primary-light: #3B7BFF;
+  --primary-gradient: linear-gradient(135deg, #3B7BFF 0%, #1B5BD7 100%);
+  --accent: #FF7A1A;
+  --accent-gradient: linear-gradient(135deg, #FF9A45, #FF4D00);
+  --salary: #FF4D00;
+  --danger: #F5222D;
+  --green: #0E8A5F;
+  --bg: #F5F6F8;
+  --card: #FFFFFF;
+  --text: #1F2329;
+  --text-2: #5A6270;
+  --muted: #9CA3AF;
+  --line: #F2F4F7;
+  --shadow: 0 4px 20px rgba(31, 35, 41, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(165deg, #DDE5F2 0%, #EDF0F5 55%, #F5F6F8 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+/* ========== 应用外壳 ========== */
+
+#app {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 48px rgba(31, 35, 41, 0.1);
+}
+
+@media (min-width: 560px) {
+  #app {
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+}
+
+/* ========== 顶部导航 ========== */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--primary-gradient);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: calc(10px + env(safe-area-inset-top)) 14px 10px;
+  box-shadow: 0 2px 12px rgba(27, 91, 215, 0.18);
+}
+
+.topbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.topbar-title.has-side {
+  text-align: center;
+}
+
+.topbar-btn {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.topbar-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.topbar-placeholder {
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.back-btn::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-left: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  transform: rotate(45deg);
+  margin-left: -3px;
+}
+
+/* ========== 页面容器 ========== */
+
+#page {
+  flex: 1;
+  animation: page-in 0.22s ease;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.page-pad {
+  padding: 14px;
+}
+
+.page-pad-bottom {
+  padding-bottom: 24px;
+}
+
+.page-detail-bottom {
+  padding-bottom: 96px;
+}
+
+/* ========== 底部 tab 栏 ========== */
+
+.tabbar {
+  position: sticky;
+  bottom: 0;
+  z-index: 60;
+  background: #FFFFFF;
+  display: flex;
+  border-top: 1px solid #ECEEF2;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tabbar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 7px 0 5px;
+  font-size: 11px;
+  color: #8A8F99;
+}
+
+.tabbar-item.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.tabbar-item svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ========== 通用组件 ========== */
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-1 {
+  flex: 1;
+  min-width: 0;
+}
+
+.title-lg {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.title-md {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-salary {
+  color: var(--salary);
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ellipsis-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 2px 12px;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 17px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.section-more {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  font-size: 14px;
+  padding: 9px 20px;
+  border: 1.5px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.btn-outline {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: #FFFFFF;
+}
+
+.btn-plain {
+  background: #EEF3FF;
+  color: var(--primary);
+}
+
+.btn-disabled {
+  background: #D5D9E0;
+  color: #FFFFFF;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  margin: 0 8px 6px 0;
+  background: #F2F4F7;
+  color: var(--text-2);
+  flex-shrink: 0;
+}
+
+.tag-blue {
+  background: #EAF1FE;
+  color: var(--primary);
+}
+
+.tag-orange {
+  background: #FFF3E8;
+  color: var(--accent);
+}
+
+.tag-red {
+  background: #FFEDEB;
+  color: var(--danger);
+}
+
+.tag-green {
+  background: #E9F7EF;
+  color: var(--green);
+}
+
+.chip {
+  flex-shrink: 0;
+  padding: 6px 16px;
+  border-radius: 30px;
+  background: #FFFFFF;
+  color: var(--text-2);
+  font-size: 13px;
+  margin-right: 10px;
+  border: 1.5px solid transparent;
+}
+
+.chip-active {
+  background: var(--primary);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 14px 0;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0 50px;
+}
+
+.empty-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #EEF1F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  color: #B8BEC9;
+  margin-bottom: 18px;
+}
+
+.empty-text {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+/* ========== 首页 ========== */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 0 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.search-icon {
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.search-icon::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 2px;
+  background: var(--muted);
+  transform: rotate(45deg);
+  right: -6px;
+  bottom: -3px;
+  border-radius: 1px;
+}
+
+.search-placeholder {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.banner {
+  position: relative;
+  height: 168px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 26px 24px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.banner-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.banner-tag {
+  display: inline-flex;
+  padding: 2px 10px;
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  font-size: 11px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.banner-title {
+  color: #FFFFFF;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.banner-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+}
+
+.banner-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.banner-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.banner-dot.active {
+  background: #FFFFFF;
+  width: 14px;
+  border-radius: 3px;
+}
+
+.quick-entries {
+  display: flex;
+  padding: 16px 8px;
+}
+
+.quick-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.quick-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.quick-icon-jobs {
+  background: var(--primary-gradient);
+}
+
+.quick-icon-jobs::after {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 13px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #FFFFFF;
+  border-radius: 4px;
+}
+
+.quick-icon-process {
+  background: var(--accent-gradient);
+}
+
+.quick-icon-process::after {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 18px;
+  width: 20px;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0 -8px 0 #FFFFFF;
+}
+
+.quick-icon-faq {
+  background: linear-gradient(135deg, #2BB78A, #0E8A5F);
+}
+
+.quick-icon-faq::after {
+  content: '?';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.quick-icon-company {
+  background: linear-gradient(135deg, #9B85FF, #5B45D6);
+}
+
+.quick-icon-company::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  width: 18px;
+  height: 18px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: inset 0 -6px 0 rgba(91, 69, 214, 0.4);
+}
+
+.country-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 4px 2px 16px;
+  scrollbar-width: none;
+}
+
+.country-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.country-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 104px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 14px 0;
+  box-shadow: var(--shadow);
+}
+
+.country-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.country-name {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.country-count {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.process-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 4px 2px 16px;
+  scrollbar-width: none;
+}
+
+.process-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.process-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 82px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.process-item::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 19px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid #C9D4E8;
+}
+
+.process-item:last-child::after {
+  display: none;
+}
+
+.process-step {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-name {
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.news-category {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #EAF1FE;
+  color: var(--primary);
+  font-size: 11px;
+}
+
+.home-company-card {
+  margin-bottom: 20px;
+}
+
+/* ========== 岗位卡片 ========== */
+
+.job-card {
+  display: block;
+}
+
+.job-title {
+  max-width: 250px;
+}
+
+.country-chip {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: #EEF3FF;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.job-salary {
+  margin: 9px 0 3px;
+  font-size: 18px;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3px;
+}
+
+.job-meta {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+/* ========== 岗位列表页 ========== */
+
+.filter-bar {
+  background: #FFFFFF;
+  padding: 12px 14px 6px;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  box-shadow: 0 2px 12px rgba(31, 35, 41, 0.04);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  background: #F2F4F7;
+  border-radius: 19px;
+  padding: 0 14px;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 13px;
+  height: 38px;
+  line-height: 38px;
+  border: none;
+  outline: none;
+  background: transparent;
+  min-width: 0;
+}
+
+/* 隐藏浏览器原生的搜索清除按钮，避免与自定义 .search-clear 出现两个「×」 */
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+.search-clear {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #D5D9E0;
+  color: #FFFFFF;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.filter-scroll {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 10px 0 2px;
+  scrollbar-width: none;
+}
+
+.filter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.sort-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 0 6px;
+}
+
+.sort-item {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-right: 22px;
+}
+
+.sort-active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.sort-total {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.job-list {
+  padding: 14px;
+}
+
+.list-footer {
+  text-align: center;
+  padding: 14px 0 40px;
+}
+
+/* ========== 岗位详情 ========== */
+
+.job-header {
+  background: var(--primary-gradient);
+  padding: 24px 16px 28px;
+  color: #FFFFFF;
+}
+
+.job-header-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  max-width: 230px;
+}
+
+.job-header .country-chip {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.job-header-salary {
+  margin-top: 14px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #FFD666;
+}
+
+.job-header-rmb {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.job-header .tag {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+.job-header .tag-orange {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+.info-card {
+  margin-top: -16px;
+}
+
+.info-row {
+  display: flex;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.info-label {
+  width: 76px;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.info-value {
+  color: var(--text);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.card-title::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.card-text {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.8;
+}
+
+.list-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 6px 0;
+  font-size: 13px;
+  color: #3A4049;
+  line-height: 1.7;
+}
+
+.list-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin: 8px 10px 0 2px;
+  flex-shrink: 0;
+}
+
+.list-dot-orange {
+  background: var(--accent);
+}
+
+.list-dot-green {
+  background: var(--green);
+}
+
+.salary-banner {
+  background: linear-gradient(135deg, #FFF7EC, #FFF0E0);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.salary-banner-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--salary);
+}
+
+.salary-banner-rmb {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #B26A00;
+}
+
+.material-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.material-item {
+  padding: 6px 14px;
+  background: #F2F4F7;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text-2);
+  margin: 0 10px 10px 0;
+}
+
+.detail-bar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  box-shadow: 0 -2px 16px rgba(31, 35, 41, 0.08);
+  z-index: 70;
+}
+
+.detail-bar-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.detail-bar-left.faved {
+  color: var(--salary);
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 2px;
+  background: #C9CED6;
+  clip-path: polygon(50% 0%, 63% 35%, 98% 35%, 69% 57%, 81% 91%, 50% 70%, 19% 91%, 31% 57%, 2% 35%, 37% 35%);
+}
+
+.star-active {
+  background: var(--salary);
+}
+
+.detail-bar-call {
+  flex: 1;
+  height: 44px;
+  border-radius: 22px;
+  background: #EEF3FF;
+  color: var(--primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 12px;
+  font-size: 14px;
+}
+
+.detail-bar-apply {
+  flex: 1.4;
+  height: 44px;
+  border-radius: 22px;
+  background: var(--accent-gradient);
+  color: #FFFFFF;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(255, 77, 0, 0.3);
+}
+
+/* ========== 资讯 ========== */
+
+.news-list {
+  padding: 14px;
+}
+
+.news-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.news-detail-title {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.news-paragraph {
+  font-size: 14px;
+  color: #3A4049;
+  line-height: 2;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.related-card {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 0 14px 10px;
+  font-size: 13px;
+  color: #3A4049;
+  box-shadow: var(--shadow);
+}
+
+/* ========== 我的 ========== */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  background: var(--primary-gradient);
+  padding: 30px 18px 56px;
+  color: #FFFFFF;
+}
+
+.avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.profile-phone {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 2px;
+}
+
+.login-arrow {
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid rgba(255, 255, 255, 0.8);
+  border-right: 2px solid rgba(255, 255, 255, 0.8);
+  transform: rotate(45deg);
+}
+
+.stats-card {
+  display: flex;
+  align-items: center;
+  margin: -40px 14px 14px;
+  padding: 18px 0;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--line);
+}
+
+.menu-card {
+  margin: 0 14px 14px;
+  padding: 4px 18px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  margin-right: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.menu-icon-fav {
+  background: #FFF3E8;
+}
+
+.menu-icon-fav::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  clip-path: polygon(50% 0%, 63% 35%, 98% 35%, 69% 57%, 81% 91%, 50% 70%, 19% 91%, 31% 57%, 2% 35%, 37% 35%);
+}
+
+.menu-icon-apply {
+  background: #EAF1FE;
+}
+
+.menu-icon-apply::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  border: 2.5px solid var(--primary);
+  border-radius: 3px;
+}
+
+.menu-icon-process {
+  background: #E9F7EF;
+}
+
+.menu-icon-process::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  width: 14px;
+  height: 4px;
+  background: var(--green);
+  border-radius: 2px;
+  box-shadow: 0 -6px 0 var(--green), 0 6px 0 var(--green);
+}
+
+.menu-icon-faq {
+  background: #F3EAFE;
+}
+
+.menu-icon-faq::after {
+  content: '?';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7B61FF;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.menu-icon-company {
+  background: #FFEDEB;
+}
+
+.menu-icon-company::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  width: 12px;
+  height: 16px;
+  background: var(--danger);
+  border-radius: 2px;
+}
+
+.menu-arrow {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #C9CED6;
+  border-right: 2px solid #C9CED6;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.contact-card {
+  margin: 0 14px 14px;
+}
+
+.contact-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.logout-btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 14px 14px;
+  height: 46px;
+  align-items: center;
+}
+
+.version {
+  padding: 12px 0 40px;
+  text-align: center;
+}
+
+/* ========== 登录 / 报名表单 ========== */
+
+.login-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0 32px;
+}
+
+.logo-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(27, 91, 215, 0.35);
+}
+
+.login-title {
+  margin-top: 18px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.form-cell {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 2px 18px;
+  margin-bottom: 16px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.form-row:last-child {
+  border-bottom: none;
+}
+
+.form-label {
+  width: 84px;
+  flex-shrink: 0;
+  color: var(--text-2);
+  font-size: 13px;
+}
+
+.form-input {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text);
+  border: none;
+  outline: none;
+  background: transparent;
+  height: 24px;
+  min-width: 0;
+}
+
+.radio-item {
+  padding: 6px 22px;
+  border-radius: 30px;
+  background: #F2F4F7;
+  color: var(--text-2);
+  font-size: 13px;
+  margin-right: 14px;
+}
+
+.radio-active {
+  background: var(--primary);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.tips {
+  background: #FFF9EC;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+
+.tips-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #B26A00;
+  margin-bottom: 6px;
+}
+
+.tips-text {
+  font-size: 12px;
+  color: #8A6D3B;
+  line-height: 1.9;
+}
+
+.submit-btn {
+  height: 48px;
+  border-radius: 24px;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.job-summary {
+  border-left: 4px solid var(--primary);
+}
+
+/* ========== 收藏 / 报名 ========== */
+
+.fav-remove {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  padding: 4px 12px;
+  border-radius: 14px;
+  background: #F2F4F7;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.apply-card {
+  position: relative;
+}
+
+.status-badge {
+  flex-shrink: 0;
+  padding: 3px 12px;
+  border-radius: 14px;
+  background: #FFF7E8;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.apply-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.apply-info text {
+  line-height: 1.9;
+}
+
+.apply-cancel {
+  display: block;
+  margin: 12px 0 0 auto;
+  padding: 4px 12px;
+  border-radius: 14px;
+  background: #F2F4F7;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* ========== 公司 / 流程 / FAQ ========== */
+
+.company-hero {
+  background: var(--primary-gradient);
+  border-radius: 14px;
+  padding: 26px 20px;
+  margin-bottom: 14px;
+  color: #FFFFFF;
+}
+
+.company-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.company-slogan {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cert-item:last-child {
+  border-bottom: none;
+}
+
+.cert-seal {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF6B6B, #E83E3E);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  flex-shrink: 0;
+  border: 2px solid rgba(232, 62, 62, 0.3);
+}
+
+.cert-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.service-item {
+  width: calc(50% - 7px);
+  margin-bottom: 14px;
+  padding: 16px;
+}
+
+.service-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.service-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.promise-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 7px 0;
+  font-size: 13px;
+  color: #3A4049;
+  line-height: 1.7;
+}
+
+.promise-check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--green);
+  margin: 4px 10px 0 2px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.promise-check::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 5px;
+  width: 7px;
+  height: 4px;
+  border-left: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  transform: rotate(-45deg);
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.contact-row:last-child {
+  border-bottom: none;
+}
+
+.contact-label {
+  width: 76px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: stretch;
+}
+
+.timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 14px;
+}
+
+.timeline-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #DCE6F8;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.timeline-dot-active {
+  background: var(--primary-gradient);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(27, 91, 215, 0.35);
+}
+
+.timeline-line {
+  flex: 1;
+  width: 2px;
+  background: #DCE6F8;
+  margin: 4px 0;
+}
+
+.timeline-card {
+  flex: 1;
+  margin-bottom: 14px;
+}
+
+.duration-badge {
+  flex-shrink: 0;
+  padding: 2px 10px;
+  border-radius: 12px;
+  background: #FFF3E8;
+  color: var(--accent);
+  font-size: 11px;
+}
+
+.docs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.docs-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-right: 6px;
+}
+
+.notice-card {
+  background: linear-gradient(135deg, #EAF1FE, #F5F9FF);
+  border: 1px solid #D5E3FB;
+}
+
+.notice-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.notice-text {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.8;
+}
+
+.faq-item {
+  margin-bottom: 12px;
+}
+
+.faq-q-index {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #EAF1FE;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.faq-q {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.faq-arrow {
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid var(--muted);
+  border-right: 2px solid var(--muted);
+  transform: rotate(45deg);
+  margin-left: 14px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.faq-arrow-open {
+  transform: rotate(135deg);
+}
+
+.faq-a {
+  margin-top: 12px;
+  padding: 14px 16px;
+  background: #F7F9FC;
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.9;
+}
+
+/* ========== Toast ========== */
+
+#toast {
+  position: fixed;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: rgba(31, 35, 41, 0.82);
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  max-width: 70%;
+  text-align: center;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ========== 桌面端提示 ========== */
+
+.desktop-hint {
+  display: none;
+}
+
+@media (min-width: 760px) {
+  .desktop-hint {
+    display: block;
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--text-2);
+    box-shadow: var(--shadow);
+    max-width: 220px;
+    line-height: 1.7;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- 桌面端提示：仅大屏显示，引导手机体验 -->
+  <div class="desktop-hint">
+    <strong style="color:var(--primary)">恒翔商务服务</strong><br />
+    本应用为手机端页面，请在手机上打开，或将浏览器窗口拉窄体验；页面内容会自动适配屏幕宽度。
+  </div>
+
+  <div id="app">
+    <!-- 顶部导航（由 JS 渲染内容） -->
+    <header id="topbar" class="topbar" style="display:none"></header>
+
+    <!-- 页面内容（由 JS 路由渲染） -->
+    <main id="page" class="page"></main>
+
+    <!-- 底部 tab 栏 -->
+    <nav id="tabbar" class="tabbar" style="display:none">
+      <a class="tabbar-item active" data-route="home" href="#/home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+        <span class="tabbar-label">首页</span>
+      </a>
+      <a class="tabbar-item" data-route="jobs" href="#/jobs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7"/><path d="M3 12h18"/></svg>
+        <span class="tabbar-label">岗位</span>
+      </a>
+      <a class="tabbar-item" data-route="news" href="#/news">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8.5h6M7 12h10M7 15.5h10"/></svg>
+        <span class="tabbar-label">资讯</span>
+      </a>
+      <a class="tabbar-item" data-route="profile" href="#/profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg>
+        <span class="tabbar-label">我的</span>
+      </a>
+    </nav>
+
+    <!-- 全局轻提示 -->
+    <div id="toast"></div>
+  </div>
+
+  <script>
+/* ============================================================
+ * 恒翔商务服务 H5 应用
+ * 数据与小程序版同源（构建时由 utils/data.js + utils/constants.js 注入）
+ * 本地实现：localStorage 保存登录会话 / 收藏 / 报名记录
+ * ============================================================ */
+(function () {
+  'use strict';
+
+  /* ============ 注入：公司配置 ============ */
+  // 全局常量：公司信息与主题色
+// 数据来源：江山市恒翔商务服务有限公司营业执照（统一社会信用代码 91330881313581563C）
+// 说明：以下电话 / 微信 / 服务时间由运营方提供（2026-10-22 补充）。
+var CONFIG = {
+  COMPANY: {
+    name: '江山市恒翔商务服务有限公司',
+    shortName: '恒翔商务服务',
+    slogan: '出国留学咨询 · 职业中介 · 劳务与家政服务',
+    creditCode: '91330881313581563C',
+    legalRep: '徐小芳',
+    capital: '50 万元',
+    companyType: '有限责任公司（自然人独资）',
+    regDate: '2014-09-01',
+    founded: 2014,
+    phone: '13867003335',
+    wechat: '13867003335',
+    address: '浙江省衢州市江山市虎山街道中山路 23-2 号',
+    hours: '24小时在线',
+    intro: '江山市恒翔商务服务有限公司成立于 2014 年 9 月，注册地址位于浙江省衢州市江山市虎山街道中山路 23-2 号，企业类型为有限责任公司（自然人独资），注册资本 50 万元。经营范围涵盖自费出国留学中介服务、职业中介活动（许可项目）、劳务服务（不含劳务派遣）、家政服务、专业保洁与清洗消毒、园林绿化工程施工、票务代理、信息技术咨询及教育咨询等。公司坚持依法经营、明码标价、如实告知，为个人与家庭提供留学咨询、职业介绍与生活服务。',
+    stats: [
+      { num: '2014', unit: '年', label: '成立时间' },
+      { num: '50', unit: '万元', label: '注册资本' },
+      { num: '20', unit: '+', label: '经营项目' },
+      { num: '6', unit: '项', label: '主营服务' }
+    ],
+    certs: [
+      { name: '营业执照（三证合一）', no: '91330881313581563C' }
+    ],
+    services: [
+      { title: '出国留学咨询', desc: '自费出国留学中介服务：留学国家与院校选择、专业规划、材料准备与申请指导' },
+      { title: '职业中介服务', desc: '岗位信息发布、求职推荐与面试组织（许可项目，凭许可证经营）' },
+      { title: '劳务服务', desc: '劳务用工对接与人员组织（不含劳务派遣）' },
+      { title: '家政与保洁', desc: '家政服务、专业保洁、清洗消毒、建筑物清洁' },
+      { title: '园林绿化', desc: '园林绿化工程施工与养护' },
+      { title: '商务代理', desc: '票务代理、信息技术咨询、教育咨询（不含涉许可审批的培训）' }
+    ],
+    promises: [
+      '明码标价，签订正规服务合同，收费开具票据',
+      '如实告知服务范围与办理条件，不夸大、不承诺办不到的事',
+      '许可项目持证依法开展，不超范围经营',
+      '尊重客户知情权，服务进度及时反馈'
+    ]
+  },
+  THEME: {
+    primary: '#1B5BD7',
+    primaryLight: '#3B7BFF',
+    accent: '#FF7A1A',
+    salary: '#FF4D00'
+  }
+}
+
+
+  /* ============ 注入：业务数据 ============ */
+  // 业务数据：国家、轮播、岗位、资讯、流程、常见问题
+// 本地实现：数据内置在本文件中，正式运营时可替换为后台接口数据。
+
+var countries = [
+  { id: 'jp', name: '日本', short: '日本', color: '#E8543F', hot: true, tagline: '距离近 · 收入高 · 工种齐全' },
+  { id: 'sg', name: '新加坡', short: '新加坡', color: '#2E6BE6', hot: true, tagline: '华人社会 · 无语言障碍 · 下签快' },
+  { id: 'il', name: '以色列', short: '以色列', color: '#5B7FFF', hot: true, tagline: '建筑工种为主 · 计件收入高' }
+]
+
+var banners = [
+  {
+    id: 'b1',
+    title: '2026 赴日专场',
+    subtitle: '建筑 · 食品 · 印刷 · 农业 · 机械 等 8 大工种',
+    tag: '热门',
+    countryId: 'jp',
+    gradient: 'linear-gradient(135deg, #4E8BFF 0%, #1B5BD7 100%)'
+  },
+  {
+    id: 'b2',
+    title: '新加坡 WP / SP 直招',
+    subtitle: '建筑 · 文员 · 机械 · 司机 · 厨师 · 销售 · 美容 · 美发',
+    tag: '急招',
+    countryId: 'sg',
+    gradient: 'linear-gradient(135deg, #FF9A45 0%, #FF4D00 100%)'
+  },
+  {
+    id: 'b3',
+    title: '以色列建筑工 · 厨师',
+    subtitle: '中资项目直招 · 计件收入高 · 包吃住',
+    tag: '高薪',
+    countryId: 'il',
+    gradient: 'linear-gradient(135deg, #5B7FFF 0%, #2B3E9B 100%)'
+  }
+]
+
+var categories = [
+  '建筑技工',
+  '餐饮厨师',
+  '机械加工',
+  '司机驾驶',
+  '文员行政',
+  '销售文员',
+  '美发美容',
+  '服装纺织',
+  '食品加工',
+  '印刷包装',
+  '农林牧渔',
+  '制造加工'
+]
+
+var jobs = [
+  {
+    id: 'j1004',
+    title: '建筑工程（模板 / 钢筋 / 木工）',
+    countryId: 'jp',
+    countryName: '日本',
+    city: '大阪 / 东京',
+    category: '建筑技工',
+    salaryText: '24-30 万日元/月',
+    rmbText: '约 1.15-1.45 万元/月',
+    gender: '男性',
+    ageRange: '20-45 岁',
+    education: '初中及以上',
+    experience: '2 年以上建筑施工经验',
+    workHours: '每日 9 小时，周休 1-2 天',
+    overtime: '加班按 1.25 倍时薪另算',
+    hot: true,
+    views: 1980,
+    createdAt: '2026-10-22',
+    tags: ['技能实习', '包吃住', '工期稳定'],
+    company: '日本建筑工程株式会社（招募中）',
+    summary: '面向建筑工地的模板支设、钢筋绑扎、木工等岗位，中资与日企项目均有需求，工期稳定。',
+    duties: ['按图纸进行模板支设与拆除、混凝土浇筑配合', '钢筋下料、绑扎与定位', '木作构件加工与安装', '遵守现场安全与 5S 管理规范'],
+    requirements: ['年龄 20-45 岁男性，2 年以上建筑工种经验', '身体健康，能适应体力劳动与站立作业', '无赴日拒签史，无不良记录', '有技能实习或建筑工签经历优先'],
+    benefits: ['雇主提供宿舍，水电费低', '加班 1.25 倍，法定假日另有补贴', '可加入日本相关社会保险', '技能熟练者可申请长期在留资格'],
+    interview: '项目部视频面试 + 技能适应性评估',
+    materials: ['身份证', '护照', '技能证明（如有）', '体检报告', '无犯罪记录证明'],
+    processNote: '报名 → 面试 → 签约 → 在留资格 → 签证 → 出境（全程约 3-5 个月）'
+  },
+  {
+    id: 'j1005',
+    title: '服装缝制 / 纺织工',
+    countryId: 'jp',
+    countryName: '日本',
+    city: '大阪府',
+    category: '服装纺织',
+    salaryText: '20-26 万日元/月',
+    rmbText: '约 0.95-1.25 万元/月',
+    gender: '不限',
+    ageRange: '18-38 岁',
+    education: '初中及以上',
+    experience: '无经验可（赴日前培训）',
+    workHours: '每日 8 小时，周休 2 天',
+    overtime: '加班按 1.25 倍时薪另算',
+    hot: false,
+    views: 1420,
+    createdAt: '2026-10-22',
+    tags: ['特定技能', '周休双日', '室内作业'],
+    company: '关西服装制造企业（招募中）',
+    summary: '服装裁剪、缝制、检品与整烫作业，适合耐心细致的作业人员，环境干净。',
+    duties: ['按工艺单进行服装裁剪与缝制', '成衣检品、整烫与包装', '设备日常保养与异常上报', '配合产线品质管理'],
+    requirements: ['年龄 18-38 岁，初中及以上学历', '无色盲色弱，手指灵活', '无赴日拒签史', '须通过日语 N4 或特定技能考试（可培训）'],
+    benefits: ['周休双日，加班另计', '提供员工宿舍', '夏季、年终奖金', '可转特定技能 2 号'],
+    interview: '雇主视频面试 + 简单技能测试',
+    materials: ['身份证', '护照', '毕业证', '日语学时证明或 N4 证书', '体检报告'],
+    processNote: '报名 → 面试 → 签约 → 在留资格 → 签证 → 出境（全程约 4-6 个月）'
+  },
+  {
+    id: 'j1006',
+    title: '食品加工工',
+    countryId: 'jp',
+    countryName: '日本',
+    city: '北海道 / 千叶',
+    category: '食品加工',
+    salaryText: '21-27 万日元/月',
+    rmbText: '约 1.0-1.3 万元/月',
+    gender: '不限',
+    ageRange: '18-40 岁',
+    education: '初中及以上',
+    experience: '无经验可（赴日前培训）',
+    workHours: '每日 8 小时，周休 2 天',
+    overtime: '加班按 1.25 倍时薪另算',
+    hot: false,
+    views: 1180,
+    createdAt: '2026-10-22',
+    tags: ['食品厂', '环境干净', '周休双日'],
+    company: '日本食品工厂（招募中）',
+    summary: '熟食、便当、冷冻食品等产线的加工、分装与检品作业，车间卫生标准高。',
+    duties: ['食品原料清洗、切配与加工', '成品分装、称重与贴标', '产线卫生清洁与消毒', '配合 HACCP 质量管理'],
+    requirements: ['年龄 18-40 岁，初中及以上学历', '持健康证，无传染性疾病', '无赴日拒签史', '须通过日语 N4 或特定技能考试（可培训）'],
+    benefits: ['周休双日，加班另计', '提供工作餐与宿舍', '入职体检由雇主承担', '可转特定技能 2 号'],
+    interview: '雇主视频面试',
+    materials: ['身份证', '护照', '毕业证', '健康证', '体检报告'],
+    processNote: '报名 → 面试 → 签约 → 在留资格 → 签证 → 出境（全程约 4-6 个月）'
+  },
+  {
+    id: 'j1007',
+    title: '印刷操作工',
+    countryId: 'jp',
+    countryName: '日本',
+    city: '东京都',
+    category: '印刷包装',
+    salaryText: '22-28 万日元/月',
+    rmbText: '约 1.05-1.35 万元/月',
+    gender: '不限',
+    ageRange: '18-38 岁',
+    education: '初中及以上',
+    experience: '无经验可（赴日前培训）',
+    workHours: '每日 8 小时，周休 2 天',
+    overtime: '加班按 1.25 倍时薪另算',
+    hot: false,
+    views: 960,
+    createdAt: '2026-10-22',
+    tags: ['印刷', '室内作业', '周休双日'],
+    company: '东京印刷企业（招募中）',
+    summary: '书刊、包装、商业印刷产线的印前、印刷与印后加工操作，室内作业环境稳定。',
+    duties: ['印刷机台操作与参数调整', '印后裁切、装订与覆膜', '设备保养与异常上报', '配合交期与品质管理'],
+    requirements: ['年龄 18-38 岁，初中及以上学历', '无色盲，能适应轮班', '无赴日拒签史', '须通过日语 N4 或特定技能考试（可培训）'],
+    benefits: ['周休双日，加班另计', '提供员工宿舍', '年终与夏季奖金', '技能熟练可长期在留'],
+    interview: '雇主视频面试',
+    materials: ['身份证', '护照', '毕业证', '日语学时证明或 N4 证书', '体检报告'],
+    processNote: '报名 → 面试 → 签约 → 在留资格 → 签证 → 出境（全程约 4-6 个月）'
+  },
+  {
+    id: 'j1008',
+    title: '农业种植工',
+    countryId: 'jp',
+    countryName: '日本',
+    city: '北海道',
+    category: '农林牧渔',
+    salaryText: '19-25 万日元/月',
+    rmbText: '约 0.9-1.2 万元/月',
+    gender: '不限',
+    ageRange: '18-45 岁',
+    education: '不限',
+    experience: '无经验可（赴日前培训）',
+    workHours: '每日 8 小时，周休 1-2 天',
+    overtime: '忙季加班另计',
+    hot: false,
+    views: 860,
+    createdAt: '2026-10-22',
+    tags: ['农业', '包吃住', '自然作业'],
+    company: '北海道农场（招募中）',
+    summary: '蔬果、稻米等作物的种植、管护、采收与初加工，适合能适应户外作业的务工者。',
+    duties: ['作物播种、定植与田间管护', '果实采收与分级包装', '温室与灌溉设施日常维护', '配合农时与产量计划'],
+    requirements: ['年龄 18-45 岁，身体健康', '能适应户外与季节性忙季', '无赴日拒签史', '须通过日语 N4 或特定技能考试（可培训）'],
+    benefits: ['提供农场宿舍与工作餐', '忙季加班补贴', '可加入相关社会保险', '可转特定技能 2 号'],
+    interview: '雇主视频面试',
+    materials: ['身份证', '护照', '健康证', '体检报告', '无犯罪记录证明'],
+    processNote: '报名 → 面试 → 签约 → 在留资格 → 签证 → 出境（全程约 4-6 个月）'
+  },
+  {
+    id: 'j1009',
+    title: '养殖工（畜牧 / 水产）',
+    countryId: 'jp',
+    countryName: '日本',
+    city: '鹿儿岛',
+    category: '农林牧渔',
+    salaryText: '20-26 万日元/月',
+    rmbText: '约 0.95-1.25 万元/月',
+    gender: '男性优先',
+    ageRange: '20-48 岁',
+    education: '不限',
+    experience: '1 年以上养殖经验优先',
+    workHours: '每日 9 小时，周休 1 天',
+    overtime: '忙季加班另计',
+    hot: false,
+    views: 740,
+    createdAt: '2026-10-22',
+    tags: ['养殖', '包吃住', '技术岗'],
+    company: '九州养殖企业（招募中）',
+    summary: '畜禽或水产的饲喂、防疫、繁育与日常管理，适合有养殖基础的人员。',
+    duties: ['畜禽 / 水产日常饲喂与健康管理', '圈舍 / 水池清洁与消毒', '配种、接产与幼崽护理', '配合防疫与出栏计划'],
+    requirements: ['年龄 20-48 岁，身体健康', '1 年以上养殖经验优先', '无赴日拒签史', '须通过日语 N4 或特定技能考试（可培训）'],
+    benefits: ['提供宿舍与工作餐', '技能熟练可长期在留', '可加入相关社会保险', '可转特定技能 2 号'],
+    interview: '雇主视频面试',
+    materials: ['身份证', '护照', '健康证', '体检报告', '无犯罪记录证明'],
+    processNote: '报名 → 面试 → 签约 → 在留资格 → 签证 → 出境（全程约 4-6 个月）'
+  },
+  {
+    id: 'j1010',
+    title: '包装工',
+    countryId: 'jp',
+    countryName: '日本',
+    city: '爱知县',
+    category: '制造加工',
+    salaryText: '20-25 万日元/月',
+    rmbText: '约 0.95-1.2 万元/月',
+    gender: '不限',
+    ageRange: '18-40 岁',
+    education: '初中及以上',
+    experience: '无经验可（赴日前培训）',
+    workHours: '每日 8 小时，周休 2 天',
+    overtime: '加班按 1.25 倍时薪另算',
+    hot: false,
+    views: 1030,
+    createdAt: '2026-10-22',
+    tags: ['包装', '周休双日', '室内作业'],
+    company: '日本制造工厂（招募中）',
+    summary: '流水线成品检品、装箱、封箱与贴标作业，门槛低，适合作为赴日第一站。',
+    duties: ['成品检品与外观确认', '装箱、封箱与称重', '标签粘贴与批次记录', '配合产线品质管理'],
+    requirements: ['年龄 18-40 岁，初中及以上学历', '无色盲，动作协调', '无赴日拒签史', '须通过日语 N4 或特定技能考试（可培训）'],
+    benefits: ['周休双日，加班另计', '提供员工宿舍', '夏季、年终奖金', '可转特定技能 2 号'],
+    interview: '雇主视频面试',
+    materials: ['身份证', '护照', '毕业证', '日语学时证明或 N4 证书', '体检报告'],
+    processNote: '报名 → 面试 → 签约 → 在留资格 → 签证 → 出境（全程约 4-6 个月）'
+  },
+  {
+    id: 'j1011',
+    title: '机械加工（车床 / 铣床）',
+    countryId: 'jp',
+    countryName: '日本',
+    city: '静冈县',
+    category: '机械加工',
+    salaryText: '23-29 万日元/月',
+    rmbText: '约 1.1-1.4 万元/月',
+    gender: '男性',
+    ageRange: '20-45 岁',
+    education: '初中及以上',
+    experience: '2 年以上机械加工经验',
+    workHours: '每日 8 小时，周休 2 天',
+    overtime: '加班按 1.25 倍时薪另算',
+    hot: true,
+    views: 1560,
+    createdAt: '2026-10-22',
+    tags: ['机械', '技能岗', '收入高'],
+    company: '静冈机械加工企业（招募中）',
+    summary: '车削、铣削等数控与普通机床操作，技术要求较高，薪资与稳定性俱佳。',
+    duties: ['按图纸进行车削、铣削加工', '刀具更换与工艺参数调整', '首件检验与过程抽检', '设备保养与异常上报'],
+    requirements: ['年龄 20-45 岁男性，2 年以上机械加工经验', '能识图，会使用量具', '无赴日拒签史', '有技能实习或机械工签经历优先'],
+    benefits: ['周休双日，加班 1.25 倍', '提供员工宿舍', '技能岗位补贴', '可转特定技能 2 号'],
+    interview: '雇主视频面试 + 图纸识读测试',
+    materials: ['身份证', '护照', '技能等级证书（如有）', '体检报告', '无犯罪记录证明'],
+    processNote: '报名 → 面试 → 签约 → 在留资格 → 签证 → 出境（全程约 4-6 个月）'
+  },
+  {
+    id: 'j2001',
+    title: '日本料理厨师',
+    countryId: 'sg',
+    countryName: '新加坡',
+    city: '新加坡',
+    category: '餐饮厨师',
+    salaryText: '2200-2800 新币/月',
+    rmbText: '约 1.18-1.5 万元/月',
+    gender: '男性优先',
+    ageRange: '22-40 岁',
+    education: '不限',
+    experience: '2 年以上日料或寿司经验',
+    workHours: '每日 10 小时，月休 4 天',
+    overtime: '加班另计，可协商调休',
+    hot: true,
+    views: 1982,
+    createdAt: '2026-10-19',
+    tags: ['包吃住', '华人环境', '可办 SP'],
+    company: '新加坡连锁日料品牌（中央厨房 + 门店）',
+    summary: '知名日料连锁品牌，负责寿司、刺身与热食制作，表现优秀者可转 SP 准证并带家属。',
+    duties: ['负责寿司、刺身、烤炸等日料出品', '把控食材新鲜度与摆盘标准', '管理冰箱库存并协助订货', '培训帮厨，执行厨房卫生规范'],
+    requirements: ['年龄 22-40 岁，2 年以上日料制作经验', '熟悉日料刀工与食品安全规范', '身体健康，持有效护照与 SkillTest 证书优先', '无新加坡不良务工记录'],
+    benefits: ['雇主提供住宿或住宿补贴', '表现优秀者可协助转换 SP 准证', '续签率高，老工人回流比例超 60%', '十三薪 + 年度绩效奖金'],
+    interview: '视频面试，试菜环节（可录视频代替），每周安排',
+    materials: ['身份证', '护照', '2 寸白底照片', '技能证书', '体检报告', '无犯罪记录证明'],
+    processNote: '报名 → 面试 → 签约 → 工作签申请 → 出境（全程约 6-8 周）'
+  },
+  {
+    id: 'j2002',
+    title: '美发师（中工 / 大工）',
+    countryId: 'sg',
+    countryName: '新加坡',
+    city: '新加坡',
+    category: '美发美容',
+    salaryText: '1800-2400 新币/月 + 提成',
+    rmbText: '约 1.0-1.4 万元/月',
+    gender: '不限',
+    ageRange: '20-38 岁',
+    education: '不限',
+    experience: '2 年以上美发经验',
+    workHours: '每日 10 小时，月休 4 天',
+    overtime: '提成制，多劳多得',
+    hot: false,
+    views: 1563,
+    createdAt: '2026-10-15',
+    tags: ['高提成', '可提升', '包住'],
+    company: '新加坡大型连锁美发沙龙（全岛 12 家门店）',
+    summary: '负责剪、烫、染及头皮护理服务，客源以华人为主，语言沟通无障碍。',
+    duties: ['为顾客提供剪发、烫染、护理等服务', '根据顾客需求给出造型建议', '维护客户关系，协助门店拓客', '保持工位与工具清洁消毒'],
+    requirements: ['年龄 20-38 岁，2 年以上美发经验', '中工及以上水平，烫染技术扎实', '普通话流利，服务意识强', '持美发师职业资格证书优先'],
+    benefits: ['底薪 + 业绩提成，综合收入 2400-3500 新币', '雇主包住宿', '每年可回国探亲 1 次，报销部分机票', '可协助考取新加坡美发执照'],
+    interview: '视频面试 + 作品审核，通过后安排雇主二面',
+    materials: ['身份证', '护照', '美发师证书', '作品照片', '体检报告'],
+    processNote: '报名 → 面试 → 签约 → 工作签 → 出境（全程约 6-8 周）'
+  },
+  {
+    id: 'j2003',
+    title: '奢侈品销售顾问',
+    countryId: 'sg',
+    countryName: '新加坡',
+    city: '新加坡',
+    category: '销售文员',
+    salaryText: '2000-2600 新币/月 + 提成',
+    rmbText: '约 1.1-1.5 万元/月',
+    gender: '不限',
+    ageRange: '20-35 岁',
+    education: '大专及以上',
+    experience: '1 年以上零售经验',
+    workHours: '轮班制，每周休 1-2 天',
+    overtime: '销售提成另算',
+    hot: false,
+    views: 1129,
+    createdAt: '2026-10-12',
+    tags: ['品牌门店', '提成高', '英语环境'],
+    company: '新加坡滨海湾奢侈品商场品牌门店',
+    summary: '国际品牌门店销售岗位，负责顾客接待、产品讲解与售后服务，锻炼英语与销售能力。',
+    duties: ['接待顾客，介绍品牌与产品卖点', '完成销售目标，维护 VIP 客户关系', '负责货品陈列、库存盘点与理货', '处理售后与退换货事宜'],
+    requirements: ['年龄 20-35 岁，大专及以上学历', '形象气质佳，普通话标准，基础英语会话', '1 年以上零售或销售经验', '持护照有效期 1 年以上'],
+    benefits: ['底薪 + 高额销售提成 + 十三薪', '员工购买品牌商品享内部折扣', '提供系统化奢侈品销售培训', '工作满 1 年可协助申请 SP 准证'],
+    interview: '视频面试（中文 + 简单英文）',
+    materials: ['身份证', '护照', '毕业证', '1 寸白底照片', '体检报告'],
+    processNote: '报名 → 面试 → 签约 → 工作签 → 出境（全程约 6-8 周）'
+  },
+  {
+    id: 'j2004',
+    title: '建筑工（模板 / 钢筋）',
+    countryId: 'sg',
+    countryName: '新加坡',
+    city: '新加坡',
+    category: '建筑技工',
+    salaryText: '2200-3000 新币/月',
+    rmbText: '约 1.18-1.6 万元/月',
+    gender: '男性',
+    ageRange: '23-50 岁',
+    education: '不限',
+    experience: '2 年以上建筑工地经验',
+    workHours: '每日 9-10 小时，月休 4 天',
+    overtime: '加班 1.5 倍，计件另算',
+    hot: true,
+    views: 1370,
+    createdAt: '2026-10-22',
+    tags: ['包吃住', '收入稳定', '工期长'],
+    company: '新加坡中资建筑公司（招募中）',
+    summary: '住宅与商业项目的模板支设、钢筋绑扎与混凝土作业，中资企业管理，工期稳定。',
+    duties: ['模板支设、加固与拆除作业', '钢筋下料、绑扎与定位', '混凝土浇筑、振捣与养护配合', '遵守工地安全与质量规范'],
+    requirements: ['年龄 23-50 岁男性，2 年以上建筑工种经验', '能看懂简单施工图纸', '身体健康，无犯罪记录', '有新加坡或中东建筑经历优先'],
+    benefits: ['计件工资，多劳多得', '营地包吃住，发放劳保用品', '雇主购买工伤与医疗保险', '合同期满回国机票由雇主承担'],
+    interview: '中资项目部视频面试',
+    materials: ['身份证', '护照', '技能证明（如有）', '体检报告', '无犯罪记录证明', '2 寸白底照片'],
+    processNote: '报名 → 面试 → 签约 → 工作签申请 → 出境（全程约 6-8 周）'
+  },
+  {
+    id: 'j2005',
+    title: '行政文员 / 跟单文员',
+    countryId: 'sg',
+    countryName: '新加坡',
+    city: '新加坡',
+    category: '文员行政',
+    salaryText: '2200-2800 新币/月',
+    rmbText: '约 1.18-1.5 万元/月',
+    gender: '不限',
+    ageRange: '22-35 岁',
+    education: '大专及以上',
+    experience: '1 年以上行政或跟单经验',
+    workHours: '每日 8 小时，周休 2 天',
+    overtime: '按公司制度另计',
+    hot: false,
+    views: 860,
+    createdAt: '2026-10-22',
+    tags: ['双休', '办公室', '环境好'],
+    company: '新加坡贸易 / 物流公司（招募中）',
+    summary: '负责订单跟进、单据处理与办公室日常行政，华人企业居多，沟通无障碍。',
+    duties: ['订单录入、跟进与交期协调', '单据、发票与报表整理', '客户与供应商沟通协调', '办公室行政事务与文件归档'],
+    requirements: ['年龄 22-35 岁，大专及以上学历', '熟练使用常用办公软件', '中文沟通流畅，具备基础英文读写能力', '无不良记录，护照有效期 1 年以上'],
+    benefits: ['周休双日，法定年假与病假', '十三薪 + 年度绩效奖金', '表现优秀者可协助转换 SP 准证', '雇主购买医疗保险'],
+    interview: '雇主视频面试（中文为主，简单英文）',
+    materials: ['身份证', '护照', '毕业证', '简历', '体检报告'],
+    processNote: '报名 → 面试 → 签约 → 工作签申请 → 出境（全程约 6-8 周）'
+  },
+  {
+    id: 'j2006',
+    title: '机械工 / 机修工',
+    countryId: 'sg',
+    countryName: '新加坡',
+    city: '新加坡',
+    category: '机械加工',
+    salaryText: '2400-3200 新币/月',
+    rmbText: '约 1.28-1.7 万元/月',
+    gender: '男性',
+    ageRange: '23-48 岁',
+    education: '不限',
+    experience: '2 年以上机械加工或机修经验',
+    workHours: '每日 9 小时，月休 4 天',
+    overtime: '加班 1.5 倍',
+    hot: true,
+    views: 1120,
+    createdAt: '2026-10-22',
+    tags: ['技术岗', '收入高', '加班充足'],
+    company: '新加坡机械制造 / 维修厂（招募中）',
+    summary: '负责机床操作、零件加工与设备维修保养，技术岗位稳定，加班收入可观。',
+    duties: ['按图纸进行车削、铣削等零件加工', '设备故障诊断与维修', '刀具更换与工艺参数调整', '设备保养与维修记录填写'],
+    requirements: ['年龄 23-48 岁男性，2 年以上机械加工或机修经验', '会识图，能使用常用量具', '身体健康，能适应车间作业', '有新加坡机械岗位经验优先'],
+    benefits: ['加班 1.5 倍，月加班充足', '提供住宿或住宿补贴', '技能岗位补贴', '十三薪 + 年度奖金'],
+    interview: '雇主视频面试 + 识图测试',
+    materials: ['身份证', '护照', '技能等级证书（如有）', '体检报告', '无犯罪记录证明'],
+    processNote: '报名 → 面试 → 签约 → 工作签申请 → 出境（全程约 6-8 周）'
+  },
+  {
+    id: 'j2007',
+    title: '司机（四号驾照 / 货车）',
+    countryId: 'sg',
+    countryName: '新加坡',
+    city: '新加坡',
+    category: '司机驾驶',
+    salaryText: '2400-3200 新币/月',
+    rmbText: '约 1.28-1.7 万元/月',
+    gender: '男性',
+    ageRange: '25-50 岁',
+    education: '不限',
+    experience: '持相应驾照，2 年以上驾龄',
+    workHours: '每日 9-10 小时，月休 4 天',
+    overtime: '加班另计',
+    hot: false,
+    views: 740,
+    createdAt: '2026-10-22',
+    tags: ['包吃住', '驾照补贴', '路线固定'],
+    company: '新加坡物流 / 运输公司（招募中）',
+    summary: '负责货物配送与车辆日常检查，路线相对固定，适合持有国内驾照并愿换证者。',
+    duties: ['按调度安排完成货物配送', '车辆日常检查、清洁与简单维护', '装卸货配合与单据签收', '遵守交通法规与公司安全制度'],
+    requirements: ['年龄 25-50 岁男性，2 年以上驾龄', '持 C1 及以上驾照，可协助办理新加坡驾照换证', '身体健康，无重大交通事故记录', '无犯罪记录'],
+    benefits: ['提供住宿或住宿补贴', '出车补贴与加班费另计', '雇主购买保险', '表现稳定可长期续签'],
+    interview: '雇主视频面试',
+    materials: ['身份证', '护照', '驾驶证', '体检报告', '无犯罪记录证明'],
+    processNote: '报名 → 面试 → 签约 → 工作签申请 → 出境（全程约 6-8 周）'
+  },
+  {
+    id: 'j2008',
+    title: '美容师 / 美体师',
+    countryId: 'sg',
+    countryName: '新加坡',
+    city: '新加坡',
+    category: '美发美容',
+    salaryText: '2200-3000 新币/月 + 提成',
+    rmbText: '约 1.18-1.6 万元/月',
+    gender: '女性优先',
+    ageRange: '20-40 岁',
+    education: '不限',
+    experience: '1 年以上美容或美体经验',
+    workHours: '每日 9 小时，月休 4 天',
+    overtime: '业绩提成另算',
+    hot: false,
+    views: 690,
+    createdAt: '2026-10-22',
+    tags: ['提成高', '环境好', '包培训'],
+    company: '新加坡连锁美容院（招募中）',
+    summary: '负责面部护理、身体护理与仪器操作，客户以本地华人与游客为主，提成可观。',
+    duties: ['面部护理、身体护理与美容仪器操作', '客户接待、需求沟通与疗程建议', '护理产品介绍与会员维护', '护理记录填写与门店卫生维护'],
+    requirements: ['年龄 20-40 岁，女性优先，1 年以上美容或美体经验', '形象端正，服务意识强', '愿意学习新仪器与新品项', '无不良记录，持有效护照'],
+    benefits: ['底薪 + 业绩提成，收入上不封顶', '提供岗前培训与手法指导', '提供住宿或住宿补贴', '年度奖金与员工护理福利'],
+    interview: '雇主视频面试（可发送手法视频代替试工）',
+    materials: ['身份证', '护照', '美容师证（如有）', '体检报告', '2 寸白底照片'],
+    processNote: '报名 → 面试 → 签约 → 工作签申请 → 出境（全程约 6-8 周）'
+  },
+  {
+    id: 'j7001',
+    title: '建筑抹灰 / 瓷砖工',
+    countryId: 'il',
+    countryName: '以色列',
+    city: '特拉维夫',
+    category: '建筑技工',
+    salaryText: '1200-1600 美元/月',
+    rmbText: '约 0.85-1.15 万元/月',
+    gender: '男性',
+    ageRange: '22-48 岁',
+    education: '不限',
+    experience: '2 年以上建筑经验',
+    workHours: '每日 9 小时，周休 1 天',
+    overtime: '加班 1.5 倍，计件另算',
+    hot: false,
+    views: 865,
+    createdAt: '2026-10-08',
+    tags: ['收入高', '包吃住', '工期稳定'],
+    company: '以色列中资建筑集团（住宅项目）',
+    summary: '负责内外墙抹灰、瓷砖铺贴作业，中资企业管理规范，工期稳定，收入按量计酬。',
+    duties: ['内外墙抹灰、找平作业', '墙地瓷砖铺贴与美缝', '配合项目进度完成施工计划', '遵守工地安全与质量规范'],
+    requirements: ['年龄 22-48 岁男性，2 年以上建筑工种经验', '能看懂简单施工图纸', '身体健康，无犯罪记录', '有以色列工签或中东建筑经历优先'],
+    benefits: ['计件工资，多劳多得，上不封顶', '营地包吃住，发放劳保用品', '雇主购买意外与医疗保险', '合同期满回国机票由雇主承担'],
+    interview: '中资项目部视频面试',
+    materials: ['身份证', '护照', '体检报告', '无犯罪记录证明', '技能证明（如有）'],
+    processNote: '报名 → 面试 → 签约 → 工签 → 出境（全程约 3-4 个月）'
+  },
+  {
+    id: 'j7002',
+    title: '以色列中餐厨师',
+    countryId: 'il',
+    countryName: '以色列',
+    city: '特拉维夫',
+    category: '餐饮厨师',
+    salaryText: '1500-2200 美元/月',
+    rmbText: '约 1.05-1.55 万元/月',
+    gender: '男性优先',
+    ageRange: '25-50 岁',
+    education: '不限',
+    experience: '3 年以上中餐厨师经验',
+    workHours: '每日 10 小时，周休 1 天',
+    overtime: '加班 1.5 倍另算',
+    hot: true,
+    views: 642,
+    createdAt: '2026-10-22',
+    tags: ['包吃住', '收入高', '中餐需求大'],
+    company: '特拉维夫中资企业与华人社区餐厅（招募中）',
+    summary: '负责中餐热菜与面点制作，服务于当地中资项目与华人社区，中餐需求稳定。',
+    duties: ['中餐热菜、面点制作与出品', '食材采购协助与成本控制', '厨房卫生与食品安全管理', '配合项目供餐计划'],
+    requirements: ['年龄 25-50 岁，3 年以上中餐厨师经验', '刀工与勺工扎实，能独立排菜', '身体健康，无犯罪记录', '有海外中餐经验优先'],
+    benefits: ['营地包吃住，发放劳保用品', '加班 1.5 倍，收入按量计酬', '雇主购买意外与医疗保险', '合同期满回国机票由雇主承担'],
+    interview: '中资项目部视频面试',
+    materials: ['身份证', '护照', '中餐厨师证（如有）', '体检报告', '无犯罪记录证明'],
+    processNote: '报名 → 面试 → 签约 → 工签 → 出境（全程约 3-4 个月）'
+  }
+]
+
+var news = [
+  {
+    id: 'n01',
+    title: '日本「特定技能」签证再度扩容，这 14 个工种最吃香',
+    category: '政策解读',
+    author: '行业观察',
+    date: '2026-10-15',
+    views: 5210,
+    summary: '日本政府宣布扩大特定技能在留资格适用范围，新增餐饮、铁路等领域的接收人数，想赴日务工的人员迎来窗口期。',
+    content: [
+      '日本出入国在留管理厅近日公布新一轮调整方案，「特定技能 1 号」签证可从事的工种范围进一步扩大，餐饮、铁路、林业、木材产业等四大领域被纳入接收范围，全国接收上限也相应提高。这意味着没有高学历的普通务工人员，同样可以通过技能考核赴日工作。',
+      '从工种需求看，制造业零部件组装、餐饮业、介护养老、建筑、农业依旧是用人大户。其中介护行业缺口最大，日本厚生劳动省预测到 2040 年将短缺 69 万名护理人员，持介护签证赴日人员不仅就业稳定，还具备转永驻的清晰路径。',
+      '需要提醒的是，特定技能签证要求申请人具备一定日语水平（通常 N4 以上）并通过对应工种的技能考试。国内多家指定机构开设有考前培训班，建议报名前先确认机构是否具备培训与考务合作资质，避免被非正规中介误导。',
+      '此外，特定技能 2 号签证面向熟练技能者开放，可无限期更新并允许携带家属，是普通务工人员获得日本长期居留身份的主流通道之一。选对工种、考出语言、干满年限，三步走稳尤为关键。'
+    ]
+  },
+  {
+    id: 'n02',
+    title: '新加坡 WP / SPass 薪资门槛调整，哪些岗位受影响',
+    category: '政策解读',
+    author: '政策速递',
+    date: '2026-10-12',
+    views: 3864,
+    summary: '新加坡人力部公布最新薪资框架，SP 准证最低薪金上调，服务业雇主用工成本增加，中餐厨师、美发等岗位底薪普涨。',
+    content: [
+      '新加坡人力部（MOM）发布新一轮工作准证薪资框架，SP 准证的最低月薪门槛按年龄段分档上调，金融行业 SP 门槛高于其他行业。政策每年 1 月与 7 月滚动更新，雇主为员工申请新准证或换证时，须满足当时的最新标准。',
+      '受此影响最直接的是服务业雇主。中餐厨师、美发师、按摩师等岗位为保住 SP 名额，底薪普遍上调 200-400 新币；WP 岗位虽无薪资门槛，但制造业 WP 配额外劳比率（DJR）收紧，雇主更倾向于把优秀 WP 工人转为 SP。',
+      '对求职者而言，准证类型直接决定待遇与去留：WP 不可携带家属、不可与新加坡人结婚后自动转身份，而 SP 满 2 年后可申请 PR（永久居民）。报名时应向劳务公司确认清楚岗位对应的准证类型，以及后续转 SP 的可能性，将这一条写进服务合同更稳妥。',
+      '另外，新加坡严禁无证打工与假证打工，一旦被查处将面临罚款、监禁及遣返，并影响今后所有国家的签证申请。选择有资质、能提供正式雇佣合同（EA）的中介，是安全赴新务工的第一步。'
+    ]
+  },
+  {
+    id: 'n03',
+    title: '德国双元制护理：免学费、领津贴、还能带家属',
+    category: '行业动态',
+    author: '项目中心',
+    date: '2026-10-10',
+    views: 4428,
+    summary: '德国护理人才缺口持续扩大，双元制职业教育成为普通人低成本赴德的主流通道，本文详解项目流程与注意事项。',
+    content: [
+      '双元制（Duale Ausbildung）是德国职业教育的核心模式：学员一部分时间在职业学校免费上课，一部分时间在企业带薪实践。护理专业学制通常 3 年，培训津贴从第一年的约 1000 欧元/月逐年递增至第三年的约 1400 欧元/月。',
+      '与自费留学相比，双元制最大的优势是「零学费 + 有收入」。学员无需支付学费，还能领取培训津贴，覆盖在德生活开销；毕业即获得欧盟认可的护理资格证，与培养企业或其他医疗机构签订正式工作合同，起薪约 2800-3400 欧元/月。',
+      '家属随行是双元制护理的另一大吸引力：学员完成职业培训并正式就业、满足住房与收入条件后，可为配偶及未成年子女申请家庭团聚签证，配偶在德国可自由工作，子女享受免费公立教育。',
+      '报名该项目通常要求高中及以上学历、德语达到 B1 水平，并需提供留学经济担保证明（约 1.1 万欧元冻结账户，部分项目可分期）。国内有不少德语培训 + 出国服务一条龙机构，建议重点考察其德国合作企业与在读学员的真实案例，谨慎对待「保过 B1」「包分配」类承诺。'
+    ]
+  },
+  {
+    id: 'n04',
+    title: '出国劳务防骗指南：牢记「三查三不」',
+    category: '出国指南',
+    author: '安全课堂',
+    date: '2026-10-08',
+    views: 6723,
+    summary: '劳务纠纷大多源于轻信口头承诺。出发前花十分钟核验资质、合同与收款账户，能避开绝大多数骗局。',
+    content: [
+      '一查资质：正规对外劳务合作企业须持有《对外劳务合作经营资格证书》，可要求出示证书原件并登录商务部业务系统统一平台核验企业名称与证书编号。凡是以「人力资源公司」「信息咨询公司」名义招收出国劳务人员的，均属超范围经营。',
+      '二查合同：服务合同应明确工作岗位、薪资标准、工作时间、收费项目与退费条件、违约责任，并加盖公司公章。口头承诺的「保底月入三万」「包机票包绿卡」若不写进合同，一律视为无效承诺。',
+      '三查收费：费用应支付至公司对公账户并索要发票，拒绝向个人微信、支付宝转账。收费超过合同约定比例、巧立名目收取「加急费」「疏通费」的，极可能是骗局。',
+      '「三不」原则同样重要：不轻信社交软件上素未谋面的「招工者」；不在未见到正式合同前支付任何费用；不参与要求「先出境再补办手续」或从第三国偷渡入境的所谓「捷径」。一旦发现被骗，请立即向公安机关报案，并联系商务部12386热线投诉。'
+    ]
+  },
+  {
+    id: 'n05',
+    title: '行前准备清单：从体检到行李，一篇搞定',
+    category: '出国指南',
+    author: '行前助手',
+    date: '2026-10-05',
+    views: 4521,
+    summary: '出境前 30 天开始准备最稳妥。这份清单按时间线整理了体检、公证、换汇、打包的完整事项。',
+    content: [
+      '出境前 30 天：完成指定医院的出国劳务体检（含胸片、血液、传染病筛查），确认无影响入职的健康问题；同步办理无犯罪记录公证与学历、技能证书公证，部分国家要求双认证，务必留足时间。',
+      '出境前 14 天：确认签证或在留资格已下发，核对护照有效期（通常要求 1 年以上）；根据目的国规定换汇，建议携带 2000-5000 元等值现金备用，其余走银行渠道；开通手机国际漫游或购买目的地电话卡。',
+      '出境前 3 天：按雇主清单打包行李——正装 1 套（面试/报到用）、舒适工装、常用药品（保留原包装与说明书）、转换插头、证件复印件 2 份（与原件分开放）。目的国若禁带肉制品、新鲜水果，切勿携带，违者罚款金额极高。',
+      '出发当天：证件、机票、体检原件、合同复印件放入随身背包；将护照信息页、雇主联系方式、劳务公司 24 小时应急电话拍照发给家人。抵达后第一时间向家人报平安，并按约定时间到岗报到。记住：遇到任何问题，先联系劳务公司境外服务热线，再联系中国驻当地使领馆领事保护电话。'
+    ]
+  },
+  {
+    id: 'n06',
+    title: '澳洲 482 工签申请要点：职业清单与英语要求',
+    category: '政策解读',
+    author: '澳新项目组',
+    date: '2026-10-02',
+    views: 2877,
+    summary: '482 签证是雇主担保类临时工签，覆盖数百个职业。本文梳理申请条件、职业清单变化与英语要求。',
+    content: [
+      '482 签证（Temporary Skill Shortage）允许澳洲雇主担保海外技术人才在澳工作，最长 4 年。申请人须获得有担保资格的雇主提名，职业在短期（STSOL）、中长期（MLTSSL）或偏远地区职业清单上，并满足对应的英语、学历与工作经验要求。',
+      '英语要求按岗位分档：多数岗位要求雅思单项 5 分、均分 5 分；部分高薪岗位（年薪达到高收入门槛）可豁免英语要求。建筑木工、厨师、汽修等技工类岗位近年需求旺盛，是普通劳务人员的主流选择。',
+      '值得关注的是，澳洲政府持续调整偏远地区政策，在指定偏远地区工作满一定年限可转 191 永居，部分职业还可走 186 雇主担保永居直通通道。木工、电工、水管工长期位列澳洲紧缺职业清单，薪资与移民前景均被看好。',
+      '办理周期方面，从报名、技能评估、雇主面试到签证下发通常 4-7 个月。建议尽早准备无犯罪记录、工作经历证明与职业评估材料；选择有澳洲雇主真实招聘需求的渠道，远比「包装简历」更可靠。'
+    ]
+  },
+  {
+    id: 'n07',
+    title: '成功案例：从沂蒙山区到东京主厨，他用了 8 年',
+    category: '成功案例',
+    author: '学员故事',
+    date: '2026-09-28',
+    views: 3358,
+    summary: '32 岁赴日的中餐厨师王师傅，从月薪 20 万日元的炒锅做起，如今已是东京中餐厅主厨，还把妻子接去了日本。',
+    content: [
+      '2018 年，32 岁的王师傅还只是山东临沂一家小饭店的炒锅师傅，月薪六千元。经正规外派渠道面试匹配，他入职东京都内一家中餐厅，起薪 20 万日元/月，雇主包住宿。',
+      '初到日本，语言是最大障碍。王师傅每天下班后跟着网课学两小时日语，一年后通过日语 N3 考试。工作上他主动承担新菜研发，把地三鲜、把子肉做了成本店招牌，店长的评价是「比日本厨师更懂中国客人的胃」。',
+      '2021 年，王师傅升任厨师长；2023 年合同续签时，他申请到了人文技术签证，随后为妻子办妥了家族滞在签证。如今他管理着一个 6 人的后厨团队，月收入超过 45 万日元。',
+      '回顾这 8 年，王师傅说得最多的是「先把手里这口锅擦亮」。他的建议是：出国前把技术练扎实，出国后把语言学起来，把合同看仔细，剩下的交给时间。',
+      '说明：本文为行业典型案例改编，人物为化名，薪资与时间线用于说明常见的成长路径，不特指任何一家机构的服务记录。'
+    ]
+  },
+  {
+    id: 'n08',
+    title: '成功案例：45 岁赴新加坡做美发，她月入 1.8 万',
+    category: '成功案例',
+    author: '学员故事',
+    date: '2026-09-25',
+    views: 2964,
+    summary: '李姐 45 岁那年关了老家理发店，只身赴新加坡打工。三年后，她不仅还清了房贷，还带出了 4 个徒弟。',
+    content: [
+      '2022 年，45 岁的李姐关掉经营了 15 年的理发店，通过正规新加坡劳务渠道入职一家连锁美发沙龙。面试时她有些忐忑：年龄偏大、只会中文，能行吗？雇主看中的是她 15 年的手上功夫，当场拍板「技术好就行，我们客户八成本地华人」。',
+      '李姐的底薪 1800 新币，加上提成第一个月到手就有 2600 新币。她盘活客人的秘诀很简单：记住每位老客的喜好，剪烫做完三天后主动回访。半年后，她的点钟率排进了门店前三。',
+      '2024 年，李姐的综合月收入稳定在 3400 新币（约人民币 1.8 万元），不仅还清了老家房贷，还陆续带了 4 个老乡徒弟出来。她说：「别觉得自己年龄大了没机会，手艺人的饭碗到哪儿都端得稳。」',
+      '李姐的经历并非个例。新加坡美发、按摩、中餐等服务业对成熟技工需求稳定，年龄上限通常放宽到 40-45 岁。有一门过硬手艺、愿意出来看看的，不妨大胆一试。',
+      '说明：本文为行业典型案例改编，人物为化名，薪资与时间线用于说明常见的成长路径，不特指任何一家机构的服务记录。'
+    ]
+  }
+]
+
+var processSteps = [
+  { step: 1, title: '咨询报名', desc: '提交姓名、电话与意向，顾问 1 对 1 沟通，评估适合的国家与岗位', duration: '1-3 天', docs: ['身份证', '意向沟通'] },
+  { step: 2, title: '简历评估', desc: '审核学历、技能证书与工作经历，出具评估意见与岗位推荐方案', duration: '1-2 天', docs: ['简历', '证书'] },
+  { step: 3, title: '面试签约', desc: '安排雇主视频或现场面试，通过后签订劳动合同与服务合同', duration: '3-7 天', docs: ['面试通过'] },
+  { step: 4, title: '技能培训', desc: '按需参加语言与技能培训，通过目的国要求的考试或认证', duration: '1-6 个月', docs: ['培训考勤'] },
+  { step: 5, title: '签证办理', desc: '准备并递交签证材料，跟进在留资格或工作签审批进度', duration: '2 周-3 个月', docs: ['护照', '公证材料'] },
+  { step: 6, title: '行前准备', desc: '出国体检、购买机票、发放行前手册与物资清单，参加行前会', duration: '1-2 周', docs: ['体检报告', '机票'] },
+  { step: 7, title: '出境安排', desc: '统一组织出境，海外同事接机并协助入住、入职报到', duration: '出发日', docs: ['护照原件'] },
+  { step: 8, title: '落地服务', desc: '驻外客服定期回访，协助解决工作生活问题，维护合法权益', duration: '合同期内', docs: ['应急通讯录'] }
+]
+
+var faqs = [
+  {
+    q: '出国劳务需要交多少钱？费用包含哪些？',
+    a: '收费标准因国家与岗位而异，报名时顾问会出具书面《收费明细表》，写清每笔费用的名称、金额与退还条件。正规收费一般包括：服务费、签证与材料办理费、培训费（如参加语言/技能培训）、境外接机与安置费。所有费用支付至公司对公账户并开具发票，凡要求转账至个人账户、或费用明显高于市场价的，请立即停止接触。'
+  },
+  {
+    q: '从报名到出境一般要多久？',
+    a: '视国家而定：新加坡、以色列等通常 6-10 周；韩国、日本约 2-6 个月；德国双元制因含语言培训通常 6-10 个月；澳洲 482 工签约 4-7 个月。时间主要花在面试匹配与签证审批上，语言考试未通过需要补考时会相应延长。'
+  },
+  {
+    q: '不会外语可以出国打工吗？',
+    a: '可以。新加坡是华人社会，中餐厨师、美发、销售等岗位日常中文沟通无障碍；日本介护、制造等岗位需要通过日语 N4 或特定技能考试，正规渠道一般会安排岗前语言培训；德国岗位需德语 B1；澳洲部分技工岗位对英语要求可放宽。报名时顾问会根据语言基础推荐匹配岗位，切勿轻信「零语言包过」的虚假宣传。'
+  },
+  {
+    q: '年龄、学历有什么要求？',
+    a: '多数岗位要求 18-45 岁，部分国家可放宽至 48 岁；学历普遍要求初中或高中及以上，新加坡 WP 岗位不限学历，销售类岗位要求大专以上。有技术、有经验的超龄人员也可申请个别急招岗位，具体以雇主面试结果为准。'
+  },
+  {
+    q: '面试或签证没通过怎么办？可以换岗位吗？',
+    a: '可以。面试未通过，顾问会与雇主沟通反馈原因，安排补面或匹配其他雇主；签证被拒，按合同约定扣除已发生的第三方费用后退还剩余服务费。报名时请确认合同中「不成功退费」条款的具体比例与时限。'
+  },
+  {
+    q: '如何辨别劳务公司是否正规？',
+    a: '一看资质：是否持有《对外劳务合作经营资格证书》（可在商务部网站核验）；二看合同：是否签订规范的服务合同与劳动合同，条款是否明确；三看账户：收费是否进入对公账户并开具发票。凡只签「咨询协议」「委托协议」的、或宣称与某政府机构「有内部关系」的，均不可信。'
+  },
+  {
+    q: '在国外遇到纠纷怎么办？',
+    a: '出境前务必确认服务机构是否提供境外落地支持，并自行留存《境外应急通讯录》、雇主与中介的联络方式。遇到欠薪、工伤、生活困难等情况，第一时间联系雇主与服务机构；必要时可向中国驻当地使领馆寻求领事保护（外交部全球领事保护热线 +86-10-12308），或联系当地劳工部门与华人社团协助。'
+  },
+  {
+    q: '家属可以探亲或随行吗？',
+    a: '视签证类型而定：日本工作满一定年限可申请家属探亲，持「人文技术」「介护」等签证可办家族滞在（配偶可工作）；德国双元制护理毕业后可申请家属随行；澳洲 482 工签可携带配偶（不限工作）及子女；新加坡 SP 持有者可为家属申请相关签证。具体条件以目的国移民法为准。'
+  }
+]
+
+/* ---------- 查询函数 ---------- */
+
+function getCountries() {
+  return countries
+}
+
+function getHotCountries() {
+  return countries.filter(function (c) { return c.hot })
+}
+
+function getCountryById(id) {
+  for (var i = 0; i < countries.length; i++) {
+    if (countries[i].id === id) return countries[i]
+  }
+  return null
+}
+
+function getBanners() {
+  return banners
+}
+
+function getBannerById(id) {
+  for (var i = 0; i < banners.length; i++) {
+    if (banners[i].id === id) return banners[i]
+  }
+  return null
+}
+
+function getCategories() {
+  return categories
+}
+
+function getJobs() {
+  return jobs
+}
+
+function getJobById(id) {
+  for (var i = 0; i < jobs.length; i++) {
+    if (jobs[i].id === id) return jobs[i]
+  }
+  return null
+}
+
+function getJobCountByCountry(countryId) {
+  var count = 0
+  for (var i = 0; i < jobs.length; i++) {
+    if (jobs[i].countryId === countryId) count++
+  }
+  return count
+}
+
+function getHotJobs(limit) {
+  var hot = jobs.filter(function (j) { return j.hot })
+  var rest = jobs.filter(function (j) { return !j.hot })
+  var list = hot.concat(rest)
+  return typeof limit === 'number' ? list.slice(0, limit) : list
+}
+
+// 综合筛选：关键词 / 国家 / 工种 / 排序
+// 搜索同义词：用户常用的口语词 → 岗位数据里的正式用词（如「护士」应能搜到「护理养老」岗位）
+var JOB_SYNONYMS = {
+  '护士': ['护理', '介护', '看护'],
+  '护工': ['护理', '介护', '看护'],
+  '保姆': ['月嫂', '家政', '护理'],
+  '阿姨': ['月嫂', '家政'],
+  '司机': ['驾驶', '司机'],
+  '厨师': ['厨师', '炒锅', '面点', '餐饮'],
+  '服务员': ['服务'],
+  '建筑': ['建筑', '木工', '钢筋', '瓦工', '砌筑'],
+  '焊工': ['焊工', '电焊', '焊接'],
+  '电焊': ['焊工', '电焊', '焊接'],
+  '幼师': ['幼教', '保育'],
+  '工厂': ['制造', '生产', '组装'],
+  '普工': ['制造', '组装', '包装', '操作'],
+  '农业': ['农业', '种植', '养殖', '采摘']
+}
+
+function queryJobs(options) {
+  options = options || {}
+  var keyword = (options.keyword || '').trim()
+  var terms = [keyword]
+  if (keyword && JOB_SYNONYMS[keyword]) terms = terms.concat(JOB_SYNONYMS[keyword])
+  var list = jobs.filter(function (job) {
+    if (options.countryId && options.countryId !== 'all' && job.countryId !== options.countryId) return false
+    if (options.category && options.category !== 'all' && job.category !== options.category) return false
+    if (keyword) {
+      var hay = job.title + job.countryName + job.category + job.city + job.company + job.tags.join('')
+      var hit = false
+      for (var ti = 0; ti < terms.length; ti++) {
+        if (hay.indexOf(terms[ti]) !== -1) { hit = true; break }
+      }
+      if (!hit) return false
+    }
+    return true
+  })
+  if (options.sort === 'hot') {
+    list = list.slice().sort(function (a, b) {
+      if (a.hot === b.hot) return b.views - a.views
+      return a.hot ? -1 : 1
+    })
+  } else {
+    // 默认按发布时间倒序
+    list = list.slice().sort(function (a, b) {
+      return a.createdAt < b.createdAt ? 1 : -1
+    })
+  }
+  return list
+}
+
+// 相关岗位：同国家或同工种，排除自身
+function getRelatedJobs(job, limit) {
+  var sameCountry = jobs.filter(function (j) {
+    return j.id !== job.id && j.countryId === job.countryId
+  })
+  var sameCategory = jobs.filter(function (j) {
+    return j.id !== job.id && j.countryId !== job.countryId && j.category === job.category
+  })
+  var list = sameCountry.concat(sameCategory)
+  return list.slice(0, limit || 3)
+}
+
+function getNews(category, limit) {
+  var list = category && category !== '全部'
+    ? news.filter(function (n) { return n.category === category })
+    : news.slice()
+  list = list.slice().sort(function (a, b) {
+    return a.date < b.date ? 1 : -1
+  })
+  return typeof limit === 'number' ? list.slice(0, limit) : list
+}
+
+function getNewsCategories() {
+  var seen = {}
+  var list = ['全部']
+  news.forEach(function (n) {
+    if (!seen[n.category]) {
+      seen[n.category] = true
+      list.push(n.category)
+    }
+  })
+  return list
+}
+
+function getNewsById(id) {
+  for (var i = 0; i < news.length; i++) {
+    if (news[i].id === id) return news[i]
+  }
+  return null
+}
+
+function getProcessSteps() {
+  return processSteps
+}
+
+function getFaqs() {
+  return faqs
+}
+
+
+
+  /* ============ 工具函数 ============ */
+
+  var COMPANY = CONFIG.COMPANY
+
+  function esc(s) {
+    return String(s === null || s === undefined ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    })
+  }
+
+  function pad2(n) {
+    return n < 10 ? '0' + n : '' + n
+  }
+
+  function formatDate(ts) {
+    var d = new Date(ts)
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate())
+  }
+
+  var toastTimer = null
+  function showToast(msg) {
+    var el = document.getElementById('toast')
+    if (!el) return
+    el.textContent = msg
+    el.classList.add('show')
+    if (toastTimer) clearTimeout(toastTimer)
+    toastTimer = setTimeout(function () {
+      el.classList.remove('show')
+    }, 1800)
+  }
+
+  function copyText(text) {
+    var done = function () { showToast('顾问微信已复制：' + text) }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done) })
+    } else {
+      fallbackCopy(text, done)
+    }
+  }
+
+  function fallbackCopy(text, done) {
+    var ta = document.createElement('textarea')
+    ta.value = text
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    try { document.execCommand('copy') } catch (e) {}
+    document.body.removeChild(ta)
+    done()
+  }
+
+  /* ============ 本地存储（与小程序版同 key） ============ */
+
+  var KEYS = {
+    USER: 'ol_user_v1',
+    FAVORITES: 'ol_favorites_v1',
+    APPLICATIONS: 'ol_applications_v1'
+  }
+
+  function lsGet(key, fallback) {
+    try {
+      var v = localStorage.getItem(key)
+      return v ? JSON.parse(v) : fallback
+    } catch (e) {
+      return fallback
+    }
+  }
+
+  function lsSet(key, val) {
+    try {
+      localStorage.setItem(key, JSON.stringify(val))
+      return true
+    } catch (e) {
+      return false
+    }
+  }
+
+  var store = {
+    getUser: function () { return lsGet(KEYS.USER, null) },
+    setUser: function (user) { return lsSet(KEYS.USER, user) },
+    clearUser: function () { try { localStorage.removeItem(KEYS.USER) } catch (e) {} },
+    isLoggedIn: function () { return !!this.getUser() },
+    getFavorites: function () { return lsGet(KEYS.FAVORITES, []) },
+    isFavorite: function (jobId) { return this.getFavorites().indexOf(jobId) !== -1 },
+    toggleFavorite: function (jobId) {
+      var favs = this.getFavorites()
+      var idx = favs.indexOf(jobId)
+      if (idx === -1) {
+        favs.unshift(jobId)
+        lsSet(KEYS.FAVORITES, favs)
+        return true
+      }
+      favs.splice(idx, 1)
+      lsSet(KEYS.FAVORITES, favs)
+      return false
+    },
+    removeFavorite: function (jobId) {
+      var favs = this.getFavorites()
+      var idx = favs.indexOf(jobId)
+      if (idx !== -1) {
+        favs.splice(idx, 1)
+        lsSet(KEYS.FAVORITES, favs)
+      }
+    },
+    getApplications: function () { return lsGet(KEYS.APPLICATIONS, []) },
+    addApplication: function (app) {
+      var list = this.getApplications()
+      var record = {
+        id: 'A' + Date.now(),
+        status: '待跟进',
+        createdAt: Date.now()
+      }
+      Object.keys(app).forEach(function (k) { record[k] = app[k] })
+      list.unshift(record)
+      lsSet(KEYS.APPLICATIONS, list)
+      return record
+    },
+    removeApplication: function (id) {
+      lsSet(KEYS.APPLICATIONS, this.getApplications().filter(function (item) {
+        return item.id !== id
+      }))
+    }
+  }
+
+  /* ============ 路由 ============ */
+
+  var TAB_PAGES = ['home', 'jobs', 'news', 'profile']
+
+  function parseHash(hash) {
+    if (typeof hash !== 'string') hash = ''
+    var raw = hash.replace(/^#/, '')
+    if (!raw) raw = '/home'
+    var qIndex = raw.indexOf('?')
+    var pathPart = qIndex === -1 ? raw : raw.slice(0, qIndex)
+    var query = {}
+    if (qIndex !== -1) {
+      raw.slice(qIndex + 1).split('&').forEach(function (pair) {
+        if (!pair) return
+        var kv = pair.split('=')
+        var k = decodeURIComponent(kv[0] || '')
+        if (k) query[k] = decodeURIComponent(kv[1] || '')
+      })
+    }
+    var parts = pathPart.split('/').filter(function (p) { return !!p })
+    return { path: parts, query: query, raw: raw }
+  }
+
+  function go(hash) {
+    if (typeof location === 'undefined') return
+    if ((location.hash || '') === hash) {
+      render()
+    } else {
+      location.hash = hash
+    }
+  }
+
+  function isTabRoute(route) {
+    return TAB_PAGES.indexOf(route) !== -1
+  }
+
+  /* ============ UI 状态 ============ */
+
+  var ui = {
+    jobsKeyword: '',
+    jobsCountry: 'all',
+    jobsCategory: 'all',
+    jobsSort: 'new',
+    newsCategory: '全部',
+    loginForm: { nickname: '', phone: '' },
+    applyForm: { name: '', phone: '', wechat: '', gender: '', age: '', note: '' },
+    faqOpen: -1,
+    loginRedirect: ''
+  }
+
+  var timers = []
+  function clearTimers() {
+    timers.forEach(function (t) { clearInterval(t) })
+    timers = []
+  }
+
+  /* ============ 登录门禁 ============ */
+
+  function requireLogin(redirect) {
+    if (store.isLoggedIn()) return true
+    ui.loginRedirect = redirect || ''
+    go('#/login')
+    return false
+  }
+
+  /* ============ 页面渲染 ============ */
+
+  var pageEl = null
+
+  function jobCardHtml(job, extraClass) {
+    return '' +
+      '<a class="card job-card ' + (extraClass || '') + '" href="#/job/' + job.id + '">' +
+        '<div class="row-between">' +
+          '<span class="title-md ellipsis flex-1">' + esc(job.title) + '</span>' +
+          '<span class="country-chip">' + esc(job.countryName) + ' · ' + esc(job.city) + '</span>' +
+        '</div>' +
+        '<div class="job-salary">' +
+          '<span class="text-salary">' + esc(job.salaryText) + '</span>' +
+          '<span class="muted" style="margin-left:8px">' + esc(job.rmbText) + '</span>' +
+        '</div>' +
+        '<div class="job-tags">' +
+          '<span class="tag tag-blue">' + esc(job.category) + '</span>' +
+          '<span class="tag">' + esc(job.gender) + '</span>' +
+          '<span class="tag">' + esc(job.ageRange) + '</span>' +
+        '</div>' +
+        '<div class="row-between job-meta">' +
+          '<span class="muted ellipsis flex-1" style="margin-right:12px">' + esc(job.company) + '</span>' +
+          '<span class="muted">' + job.views + ' 人浏览</span>' +
+        '</div>' +
+      '</a>'
+  }
+
+  /* ---------- 首页 ---------- */
+
+  function HomePage() {
+    var hotCountries = getHotCountries().map(function (c) {
+      return {
+        id: c.id, name: c.name, short: c.short, color: c.color,
+        count: getJobCountByCountry(c.id)
+      }
+    })
+    var hotJobs = getHotJobs(4)
+    var latestNews = getNews(null, 3)
+    var processPreview = getProcessSteps().slice(0, 5)
+    var banners = getBanners()
+
+    var bannerHtml = banners.map(function (b, i) {
+      return '' +
+        '<a class="banner-slide' + (i === 0 ? ' active' : '') + '" data-banner="' + b.id + '" href="#/jobs?country=' + b.countryId + '" style="background:' + b.gradient + '">' +
+          '<span class="banner-tag">' + esc(b.tag) + '</span>' +
+          '<div class="banner-title">' + esc(b.title) + '</div>' +
+          '<div class="banner-subtitle">' + esc(b.subtitle) + '</div>' +
+        '</a>'
+    }).join('')
+
+    var dotsHtml = banners.map(function (b, i) {
+      return '<span class="banner-dot' + (i === 0 ? ' active' : '') + '"></span>'
+    }).join('')
+
+    var countryHtml = hotCountries.map(function (c) {
+      return '' +
+        '<a class="country-item" href="#/jobs?country=' + c.id + '">' +
+          '<span class="country-badge" style="background:' + c.color + '">' + esc(c.short) + '</span>' +
+          '<span class="country-name">' + esc(c.name) + '</span>' +
+          '<span class="country-count">在招 ' + c.count + ' 个</span>' +
+        '</a>'
+    }).join('')
+
+    var processHtml = processPreview.map(function (p) {
+      return '' +
+        '<div class="process-item">' +
+          '<div class="process-step">' + p.step + '</div>' +
+          '<span class="process-name">' + esc(p.title) + '</span>' +
+        '</div>'
+    }).join('')
+
+    var newsHtml = latestNews.map(function (n) {
+      return '' +
+        '<a class="card news-card" href="#/news/' + n.id + '">' +
+          '<div class="row-between" style="margin-bottom:6px">' +
+            '<span class="news-category">' + esc(n.category) + '</span>' +
+            '<span class="muted">' + esc(n.date) + '</span>' +
+          '</div>' +
+          '<div class="title-md ellipsis-2">' + esc(n.title) + '</div>' +
+          '<div class="muted ellipsis-2" style="margin-top:4px">' + esc(n.summary) + '</div>' +
+        '</a>'
+    }).join('')
+
+    return '' +
+    '<div class="page-pad page-pad-bottom">' +
+      '<a class="search-bar" href="#/jobs?focus=1">' +
+        '<span class="search-icon"></span>' +
+        '<span class="search-placeholder">搜索岗位 / 国家 / 工种</span>' +
+      '</a>' +
+
+      '<div class="banner">' + bannerHtml + '<div class="banner-dots">' + dotsHtml + '</div></div>' +
+
+      '<div class="card quick-entries">' +
+        '<a class="quick-item" href="#/jobs">' +
+          '<span class="quick-icon quick-icon-jobs"></span><span>全部岗位</span>' +
+        '</a>' +
+        '<a class="quick-item" href="#/process">' +
+          '<span class="quick-icon quick-icon-process"></span><span>出国流程</span>' +
+        '</a>' +
+        '<a class="quick-item" href="#/faq">' +
+          '<span class="quick-icon quick-icon-faq"></span><span>费用说明</span>' +
+        '</a>' +
+        '<a class="quick-item" href="#/company">' +
+          '<span class="quick-icon quick-icon-company"></span><span>公司资质</span>' +
+        '</a>' +
+      '</div>' +
+
+      '<div class="section-header">' +
+        '<span class="section-title">热门国家</span>' +
+        '<a class="section-more" href="#/jobs">在招 ' + getJobs().length + ' 个岗位</a>' +
+      '</div>' +
+      '<div class="country-scroll">' + countryHtml + '</div>' +
+
+      '<div class="section-header">' +
+        '<span class="section-title">推荐岗位</span>' +
+        '<a class="section-more" href="#/jobs">查看全部</a>' +
+      '</div>' +
+      '<div>' + hotJobs.map(function (j) { return jobCardHtml(j) }).join('') + '</div>' +
+
+      '<div class="section-header">' +
+        '<span class="section-title">出国流程</span>' +
+        '<a class="section-more" href="#/process">八步出境</a>' +
+      '</div>' +
+      '<div class="process-scroll">' + processHtml + '</div>' +
+
+      '<div class="section-header">' +
+        '<span class="section-title">最新资讯</span>' +
+        '<a class="section-more" href="#/news">更多</a>' +
+      '</div>' +
+      '<div>' + newsHtml + '</div>' +
+
+      '<div class="section-header">' +
+        '<span class="section-title">关于我们</span>' +
+      '</div>' +
+      '<a class="card home-company-card" href="#/company">' +
+        '<div class="row-between">' +
+          '<div class="flex-1">' +
+            '<div class="title-md">' + esc(COMPANY.name) + '</div>' +
+            '<div class="muted" style="margin-top:2px">' + esc(COMPANY.slogan) + '</div>' +
+          '</div>' +
+          '<span class="btn btn-plain">了解详情</span>' +
+        '</div>' +
+        '<div class="divider"></div>' +
+        '<div class="muted ellipsis-2">' + esc(COMPANY.intro) + '</div>' +
+      '</a>' +
+
+      '<div class="card">' +
+        '<div class="row-between">' +
+          '<div class="flex-1">' +
+            '<div class="title-md">联系顾问，免费评估</div>' +
+            '<div class="muted" style="margin-top:2px">' + esc(COMPANY.phone || '电话待补充') + ' · ' + esc(COMPANY.hours || '服务时间待补充') + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="row" style="margin-top:14px">' +
+          '<a class="btn btn-plain flex-1" style="margin-right:12px" href="tel:' + COMPANY.phone.replace(/[^0-9+]/g, '') + '">电话咨询</a>' +
+          '<button class="btn btn-primary flex-1" data-action="copy-wechat">微信咨询</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>'
+  }
+
+  function startBanner() {
+    var box = document.querySelector('.banner')
+    if (!box) return
+    var slides = box.querySelectorAll('.banner-slide')
+    var dots = box.querySelectorAll('.banner-dot')
+    if (slides.length < 2) return
+    var i = 0
+    var timer = setInterval(function () {
+      i = (i + 1) % slides.length
+      slides.forEach(function (s, idx) { s.classList.toggle('active', idx === i) })
+      dots.forEach(function (d, idx) { d.classList.toggle('active', idx === i) })
+    }, 4000)
+    timers.push(timer)
+  }
+
+  /* ---------- 岗位列表 ---------- */
+
+  function filteredJobs() {
+    return queryJobs({
+      keyword: ui.jobsKeyword,
+      countryId: ui.jobsCountry,
+      category: ui.jobsCategory,
+      sort: ui.jobsSort
+    })
+  }
+
+  function jobListHtml() {
+    var list = filteredJobs()
+    if (!list.length) {
+      return '' +
+        '<div class="empty">' +
+          '<div class="empty-circle">空</div>' +
+          '<div class="empty-text">没有找到匹配的岗位，换个条件试试</div>' +
+          '<button class="btn btn-plain" data-action="reset-filter">重置筛选条件</button>' +
+        '</div>'
+    }
+    return list.map(function (j) { return jobCardHtml(j) }).join('') +
+      '<div class="list-footer muted text-center">已展示全部 ' + list.length + ' 个岗位</div>'
+  }
+
+  function JobsPage(query) {
+    var countryFilters = [{ id: 'all', name: '全部' }].concat(
+      getCountries().map(function (c) { return { id: c.id, name: c.name } })
+    )
+    var categoryFilters = [{ id: 'all', name: '全部工种' }].concat(
+      getCategories().map(function (c) { return { id: c, name: c } })
+    )
+
+    var countryChips = countryFilters.map(function (c) {
+      return '<button class="chip' + (ui.jobsCountry === c.id ? ' chip-active' : '') + '" data-action="filter-country" data-value="' + c.id + '">' + esc(c.name) + '</button>'
+    }).join('')
+
+    var categoryChips = categoryFilters.map(function (c) {
+      return '<button class="chip' + (ui.jobsCategory === c.id ? ' chip-active' : '') + '" data-action="filter-category" data-value="' + c.id + '">' + esc(c.name) + '</button>'
+    }).join('')
+
+    return '' +
+    '<div>' +
+      '<div class="filter-bar">' +
+        '<div class="search-box">' +
+          '<span class="search-icon"></span>' +
+          '<input id="job-search" class="search-input" type="search" value="' + esc(ui.jobsKeyword) + '" placeholder="搜索岗位、国家、工种" data-model="jobsKeyword" />' +
+          (ui.jobsKeyword ? '<button class="search-clear" data-action="clear-keyword">×</button>' : '') +
+        '</div>' +
+        '<div class="filter-scroll">' + countryChips + '</div>' +
+        '<div class="filter-scroll">' + categoryChips + '</div>' +
+        '<div class="sort-row">' +
+          '<button class="sort-item' + (ui.jobsSort === 'new' ? ' sort-active' : '') + '" data-action="sort" data-value="new">最新发布</button>' +
+          '<button class="sort-item' + (ui.jobsSort === 'hot' ? ' sort-active' : '') + '" data-action="sort" data-value="hot">最热综合</button>' +
+          '<span class="sort-total">共 ' + filteredJobs().length + ' 个岗位</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="job-list" id="job-list">' + jobListHtml() + '</div>' +
+    '</div>'
+  }
+
+  /* ---------- 岗位详情 ---------- */
+
+  var currentJob = null
+
+  function JobDetailPage(jobId) {
+    var job = getJobById(jobId)
+    if (!job) {
+      return '' +
+        '<div class="empty">' +
+          '<div class="empty-circle">空</div>' +
+          '<div class="empty-text">岗位不存在或已下架</div>' +
+          '<a class="btn btn-primary" href="#/jobs">去看岗位</a>' +
+        '</div>'
+    }
+    currentJob = job
+    var faved = store.isFavorite(job.id)
+    var related = getRelatedJobs(job, 3)
+
+    var infoRows = [
+      ['雇主企业', job.company],
+      ['工作经验', job.experience],
+      ['工作时间', job.workHours],
+      ['加班情况', job.overtime],
+      ['面试安排', job.interview]
+    ].map(function (r) {
+      return '<div class="info-row"><span class="info-label">' + esc(r[0]) + '</span><span class="info-value flex-1">' + esc(r[1]) + '</span></div>'
+    }).join('')
+
+    function listItems(arr, cls) {
+      return arr.map(function (t) {
+        return '<div class="list-item"><span class="list-dot ' + (cls || '') + '"></span><span class="flex-1">' + esc(t) + '</span></div>'
+      }).join('')
+    }
+
+    return '' +
+    '<div class="page-detail-bottom">' +
+      '<div class="job-header">' +
+        '<div class="row-between">' +
+          '<span class="job-header-title">' + esc(job.title) + '</span>' +
+          '<span class="country-chip">' + esc(job.countryName) + ' · ' + esc(job.city) + '</span>' +
+        '</div>' +
+        '<div class="job-header-salary">' + esc(job.salaryText) + '</div>' +
+        '<div class="job-header-rmb">' + esc(job.rmbText) + '</div>' +
+        '<div class="job-tags" style="margin-top:14px">' +
+          '<span class="tag tag-orange">' + esc(job.category) + '</span>' +
+          '<span class="tag">' + esc(job.gender) + '</span>' +
+          '<span class="tag">' + esc(job.ageRange) + '</span>' +
+          '<span class="tag">' + esc(job.education) + '</span>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="page-pad" style="padding-top:0">' +
+        '<div class="card info-card">' + infoRows + '</div>' +
+
+        '<div class="card">' +
+          '<div class="card-title">岗位简介</div>' +
+          '<div class="card-text">' + esc(job.summary) + '</div>' +
+        '</div>' +
+
+        '<div class="card">' +
+          '<div class="card-title">工作内容</div>' + listItems(job.duties) +
+        '</div>' +
+
+        '<div class="card">' +
+          '<div class="card-title">任职要求</div>' + listItems(job.requirements, 'list-dot-orange') +
+        '</div>' +
+
+        '<div class="card">' +
+          '<div class="card-title">薪资福利</div>' +
+          '<div class="salary-banner">' +
+            '<span class="salary-banner-text">' + esc(job.salaryText) + '</span>' +
+            '<span class="salary-banner-rmb">' + esc(job.rmbText) + '</span>' +
+          '</div>' +
+          listItems(job.benefits, 'list-dot-green') +
+        '</div>' +
+
+        '<div class="card">' +
+          '<div class="card-title">报名所需材料</div>' +
+          '<div class="material-grid">' +
+            job.materials.map(function (m) { return '<span class="material-item">' + esc(m) + '</span>' }).join('') +
+          '</div>' +
+          '<div class="divider"></div>' +
+          '<div class="card-text"><span class="text-primary">办理流程：</span>' + esc(job.processNote) + '</div>' +
+        '</div>' +
+
+        '<div class="section-header"><span class="section-title">相关岗位</span></div>' +
+        '<div>' + related.map(function (j) { return jobCardHtml(j) }).join('') + '</div>' +
+      '</div>' +
+
+      '<div class="detail-bar">' +
+        '<button class="detail-bar-left' + (faved ? ' faved' : '') + '" data-action="toggle-fav" data-id="' + job.id + '">' +
+          '<span class="star' + (faved ? ' star-active' : '') + '"></span>' +
+          '<span>' + (faved ? '已收藏' : '收藏') + '</span>' +
+        '</button>' +
+        '<a class="detail-bar-call" href="tel:' + COMPANY.phone.replace(/[^0-9+]/g, '') + '">电话咨询</a>' +
+        '<button class="detail-bar-apply" data-action="go-apply" data-id="' + job.id + '">立即报名</button>' +
+      '</div>' +
+    '</div>'
+  }
+
+  /* ---------- 资讯 ---------- */
+
+  function NewsPage() {
+    var cats = getNewsCategories()
+    var active = ui.newsCategory || '全部'
+    var chips = cats.map(function (c) {
+      return '<button class="chip' + (active === c ? ' chip-active' : '') + '" data-action="filter-news" data-value="' + esc(c) + '">' + esc(c) + '</button>'
+    }).join('')
+    var list = getNews(active)
+    var items = list.map(function (n) {
+      return '' +
+        '<a class="card" href="#/news/' + n.id + '">' +
+          '<div class="row-between" style="margin-bottom:8px">' +
+            '<span class="news-category">' + esc(n.category) + '</span>' +
+            '<span class="muted">' + esc(n.date) + '</span>' +
+          '</div>' +
+          '<div class="news-title">' + esc(n.title) + '</div>' +
+          '<div class="muted ellipsis-2" style="margin-top:6px">' + esc(n.summary) + '</div>' +
+          '<div class="row-between" style="margin-top:10px">' +
+            '<span class="muted">' + esc(n.author) + '</span>' +
+            '<span class="muted">' + n.views + ' 阅读</span>' +
+          '</div>' +
+        '</a>'
+    }).join('')
+    return '' +
+      '<div>' +
+        '<div class="filter-bar"><div class="filter-scroll">' + chips + '</div></div>' +
+        '<div class="news-list">' + items + '</div>' +
+      '</div>'
+  }
+
+  function NewsDetailPage(newsId) {
+    var news = getNewsById(newsId)
+    if (!news) {
+      return '' +
+        '<div class="empty">' +
+          '<div class="empty-circle">空</div>' +
+          '<div class="empty-text">资讯不存在</div>' +
+          '<a class="btn btn-primary" href="#/news">去看资讯</a>' +
+        '</div>'
+    }
+    var related = getNews(news.category, 10).filter(function (n) {
+      return n.id !== news.id
+    }).slice(0, 3)
+
+    return '' +
+      '<div class="page-pad">' +
+        '<div class="card">' +
+          '<div class="news-detail-title">' + esc(news.title) + '</div>' +
+          '<div class="row-between" style="margin:14px 0">' +
+            '<span class="news-category">' + esc(news.category) + '</span>' +
+            '<span class="muted">' + esc(news.author) + ' · ' + esc(news.date) + ' · ' + news.views + ' 阅读</span>' +
+          '</div>' +
+          '<div class="divider"></div>' +
+          news.content.map(function (p) {
+            return '<div class="news-paragraph">' + esc(p) + '</div>'
+          }).join('') +
+        '</div>' +
+        (related.length ? '<div class="section-header"><span class="section-title">相关阅读</span></div>' : '') +
+        related.map(function (n) {
+          return '<a class="related-card" href="#/news/' + n.id + '"><span class="ellipsis flex-1">' + esc(n.title) + '</span><span class="muted">' + esc(n.date) + '</span></a>'
+        }).join('') +
+      '</div>'
+  }
+
+  /* ---------- 我的 ---------- */
+
+  function ProfilePage() {
+    var user = store.getUser()
+    var header = user
+      ? '<div class="profile-header">' +
+          '<span class="avatar">' + esc(user.nickname ? user.nickname.charAt(0) : '客') + '</span>' +
+          '<div class="flex-1">' +
+            '<div class="profile-name">' + esc(user.nickname) + '</div>' +
+            '<div class="profile-phone">' + esc(user.phone) + '</div>' +
+          '</div>' +
+        '</div>'
+      : '<a class="profile-header" href="#/login">' +
+          '<span class="avatar">客</span>' +
+          '<div class="flex-1">' +
+            '<div class="profile-name">点击登录</div>' +
+            '<div class="profile-phone">登录后可报名与收藏</div>' +
+          '</div>' +
+          '<span class="login-arrow"></span>' +
+        '</a>'
+
+    var menus = [
+      ['favorites', 'menu-icon-fav', '我的收藏'],
+      ['applications', 'menu-icon-apply', '我的报名'],
+      ['process', 'menu-icon-process', '出国流程'],
+      ['faq', 'menu-icon-faq', '费用说明 / 常见问题'],
+      ['company', 'menu-icon-company', '公司资质']
+    ].map(function (m) {
+      return '' +
+        '<a class="menu-item" href="#/' + m[0] + '">' +
+          '<span class="menu-icon ' + m[1] + '"></span>' +
+          '<span class="flex-1">' + m[2] + '</span>' +
+          '<span class="menu-arrow"></span>' +
+        '</a>'
+    }).join('')
+
+    return '' +
+      '<div class="page-pad-bottom">' +
+        header +
+        '<div class="card stats-card">' +
+          '<a class="stat-item" href="#/applications">' +
+            '<span class="stat-num">' + store.getApplications().length + '</span>' +
+            '<span class="stat-label">我的报名</span>' +
+          '</a>' +
+          '<span class="stat-divider"></span>' +
+          '<a class="stat-item" href="#/favorites">' +
+            '<span class="stat-num">' + store.getFavorites().length + '</span>' +
+            '<span class="stat-label">我的收藏</span>' +
+          '</a>' +
+          '<span class="stat-divider"></span>' +
+          '<a class="stat-item" href="#/process">' +
+            '<span class="stat-num">8</span>' +
+            '<span class="stat-label">出国流程</span>' +
+          '</a>' +
+        '</div>' +
+        '<div class="card menu-card">' + menus + '</div>' +
+        '<div class="card contact-card">' +
+          '<div class="contact-title">联系顾问</div>' +
+          '<div class="row" style="margin-top:12px">' +
+            '<a class="btn btn-plain flex-1" style="margin-right:12px" href="tel:' + COMPANY.phone.replace(/[^0-9+]/g, '') + '">电话咨询</a>' +
+            '<button class="btn btn-primary flex-1" data-action="copy-wechat">微信咨询</button>' +
+          '</div>' +
+          '<div class="muted" style="margin-top:12px">' + esc(COMPANY.phone || '电话待补充') + ' · 服务时间 ' + esc(COMPANY.hours || '服务时间待补充') + '</div>' +
+        '</div>' +
+        (user ? '<button class="btn btn-outline logout-btn" data-action="logout">退出登录</button>' : '') +
+        '<div class="version muted text-center">' + esc(COMPANY.name) + ' · v1.0.0</div>' +
+      '</div>'
+  }
+
+  /* ---------- 登录 ---------- */
+
+  function LoginPage(query) {
+    if (query && query.redirect) {
+      ui.loginRedirect = query.redirect
+    }
+    var f = ui.loginForm
+    return '' +
+      '<div class="page-pad">' +
+        '<div class="login-logo">' +
+          '<div class="logo-circle">恒</div>' +
+          '<div class="login-title">欢迎登录</div>' +
+          '<div class="login-subtitle">登录后可报名岗位、收藏心仪岗位并跟踪报名进度</div>' +
+        '</div>' +
+        '<div class="form-cell">' +
+          '<div class="form-row">' +
+            '<span class="form-label">昵称</span>' +
+            '<input class="form-input" type="text" maxlength="20" value="' + esc(f.nickname) + '" placeholder="请输入昵称（2-20 个字）" data-model="loginForm.nickname" />' +
+          '</div>' +
+          '<div class="form-row">' +
+            '<span class="form-label">手机号</span>' +
+            '<input class="form-input" type="tel" maxlength="11" value="' + esc(f.phone) + '" placeholder="请输入 11 位手机号" data-model="loginForm.phone" />' +
+          '</div>' +
+        '</div>' +
+        '<button class="btn btn-primary btn-block submit-btn" data-action="submit-login">登 录</button>' +
+        '<div class="muted text-center">登录即表示同意<a class="link" href="#/agreement">《用户服务协议》</a>与<a class="link" href="#/privacy">《隐私政策》</a></div>' +
+      '</div>'
+  }
+
+  /* ---------- 法律条款 ---------- */
+
+  // 通用条款页渲染：type = 'agreement' | 'privacy'
+  function LegalPage(type) {
+    var isAgreement = type === 'agreement'
+    var name = COMPANY.name
+    var phone = COMPANY.phone || ''
+    var address = COMPANY.address || ''
+    var contact = (phone ? '咨询电话 ' + esc(phone) + '；' : '') + (address ? '联系地址：' + esc(address) : '')
+
+    var title = isAgreement ? '用户服务协议' : '隐私政策'
+    var intro = isAgreement
+      ? '本协议是您与' + esc(name) + '（以下简称「本公司」）之间，就您使用本平台所提供的信息浏览、岗位查询与咨询服务所订立的协议。请您在使用前仔细阅读。'
+      : '本政策说明' + esc(name) + '（以下简称「本公司」）如何收集、使用与保护您的个人信息。请您在使用前仔细阅读。'
+
+    var sections = isAgreement
+      ? [
+        { h: '一、服务内容', b: '本平台提供出国留学咨询、职业中介活动、劳务服务（不含劳务派遣）、家政服务、保洁与园林绿化等信息展示与咨询对接服务。平台展示的岗位与项目信息由合作方提供，本公司尽力核验，但不对其真实性、准确性与时效性作出保证，最终以双方签订的书面服务合同为准。' },
+        { h: '二、服务范围声明', b: '本公司严格在营业执照登记的经营范围与行政许可范围内开展业务。涉及许可项目的服务，均持证依法开展，不超范围经营。' },
+        { h: '三、用户信息的真实性', b: '您应保证所填写的姓名、手机号、年龄、工作经历、技能证书等信息真实、准确、完整。因信息不实导致的面试失败、签证拒签等后果，由您自行承担。' },
+        { h: '四、费用与收退费', b: '涉及收费的服务项目、金额、退费条件与违约责任，均以您与本公司签订的书面服务合同为准。费用应支付至公司（对公）账户并索取正规票据；请勿向个人账户转账。' },
+        { h: '五、用户义务', b: '您不得利用本平台发布、传播违法或不良信息，不得冒用他人身份报名，不得干扰平台正常运行。违反者本公司有权终止服务并保留追责权利。' },
+        { h: '六、风险提示', b: '跨境就业与留学涉及目的国法律、签证政策及汇率变动等不确定因素。请您在签约前充分核实雇主资质、合同条款与退费约定，切勿轻信「保过」「包过」等口头承诺。' },
+        { h: '七、免责声明', b: '因不可抗力、电信故障、第三方服务中断或您自身操作不当导致的服务不可用或信息损失，本公司在法律允许范围内免于承担责任。' },
+        { h: '八、协议的变更与终止', b: '本公司可根据法律法规与业务需要修订本协议，修订后在本页面公布即生效。您停止使用本平台即视为终止本协议。' },
+        { h: '九、争议解决', b: '本协议的订立、效力与解释均适用中华人民共和国法律。双方协商不成的，提交本公司所在地有管辖权的人民法院诉讼解决。' },
+        { h: '十、联系我们', b: contact || '联系方式请见本平台「公司资质」页面。' }
+      ]
+      : [
+        { h: '一、我们收集的信息', b: '（1）您主动填写的信息：登录时的昵称与手机号；报名岗位时填写的姓名、性别、年龄、意向国家与岗位、工作经历等。（2）使用过程中产生的信息：岗位浏览、收藏、报名与取消记录。' },
+        { h: '二、信息的使用目的', b: '上述信息仅用于识别您的身份、完成岗位报名与匹配、安排顾问与您联系、反馈服务进度，以及改进本平台的展示与推荐。我们不会将其用于与本服务无关的用途。' },
+        { h: '三、信息的存储方式', b: '本平台为本地存储型应用：您填写的信息保存在您本机浏览器（或小程序的本地缓存）中，不会主动上传至本公司的服务器。清除浏览器数据、卸载小程序或在本平台内退出登录，即可删除这些信息。' },
+        { h: '四、信息的安全保护', b: '我们采取合理的管理与技术措施保护信息安全。但由于互联网与终端设备环境的开放性，请您妥善保管自己的设备与账号信息，避免他人未经授权使用。' },
+        { h: '五、信息的共享', b: '未经您的同意，我们不会向任何第三方出售或泄露您的个人信息。为完成岗位报名、面试安排与手续办理，我们可能在必要范围内将您的信息提供给合作雇主、培训机构或签证代办机构，并要求对方按约定用途使用。' },
+        { h: '六、您的权利', b: '您可随时在本平台内查看、更正您填写的信息，也可通过退出登录或清除本地数据的方式删除相关信息。需要协助的，可通过下方联系方式与我们取得联系。' },
+        { h: '七、未成年人信息保护', b: '本平台服务面向具备完全民事行为能力的成年人。若您是未成年人，请在监护人陪同下阅读本政策并取得其同意后再使用。' },
+        { h: '八、本政策的更新', b: '我们可能因法律法规变化或业务调整修订本政策，修订后在本页面公布即生效，恕不另行逐一通知，请您定期查阅。' },
+        { h: '九、联系我们', b: contact || '联系方式请见本平台「公司资质」页面。' }
+      ]
+
+    var body = sections.map(function (s) {
+      return '' +
+        '<div class="section-header"><span class="section-title">' + esc(s.h) + '</span></div>' +
+        '<div class="card"><div class="card-text">' + esc(s.b) + '</div></div>'
+    }).join('')
+
+    var footerNote = isAgreement
+      ? '提示：以上条款为通用模板，正式运营前请结合本公司实际业务并由法务或专业律师审核后发布。'
+      : '提示：以上政策为通用模板，正式运营前请结合本公司实际数据处理方式并由法务或专业律师审核后发布。'
+
+    return '' +
+      '<div class="page-pad">' +
+        '<div class="card">' +
+          '<div class="title-md">' + title + '</div>' +
+          '<div class="muted" style="margin-top:6px">' + esc(name) + '</div>' +
+          '<div class="card-text" style="margin-top:10px">' + esc(intro) + '</div>' +
+        '</div>' +
+        body +
+        '<div class="card"><div class="card-text muted">' + esc(footerNote) + '</div></div>' +
+      '</div>'
+  }
+
+  /* ---------- 报名 ---------- */
+
+  function ApplyPage(jobId) {
+    var job = getJobById(jobId)
+    if (!job) {
+      return '' +
+        '<div class="empty">' +
+          '<div class="empty-circle">空</div>' +
+          '<div class="empty-text">岗位不存在</div>' +
+          '<a class="btn btn-primary" href="#/jobs">去看岗位</a>' +
+        '</div>'
+    }
+    var user = store.getUser()
+    if (!user) {
+      ui.loginRedirect = '#/apply/' + job.id
+      return LoginPage({ redirect: '#/apply/' + job.id })
+    }
+    var f = ui.applyForm
+    if (!f.phone && user.phone) f.phone = user.phone
+
+    var genderHtml = ['男', '女'].map(function (g) {
+      return '<button class="radio-item' + (f.gender === g ? ' radio-active' : '') + '" data-action="set-gender" data-value="' + g + '">' + g + '</button>'
+    }).join('')
+
+    return '' +
+      '<div class="page-pad">' +
+        '<div class="card job-summary">' +
+          '<div class="row-between">' +
+            '<span class="title-md ellipsis flex-1">' + esc(job.title) + '</span>' +
+            '<span class="country-chip">' + esc(job.countryName) + ' · ' + esc(job.city) + '</span>' +
+          '</div>' +
+          '<div class="text-salary" style="margin-top:6px">' + esc(job.salaryText) + '</div>' +
+          '<div class="muted" style="margin-top:2px">报名后顾问将在 1 个工作日内与您联系</div>' +
+        '</div>' +
+
+        '<div class="form-cell">' +
+          '<div class="form-row">' +
+            '<span class="form-label">姓名</span>' +
+            '<input class="form-input" type="text" value="' + esc(f.name) + '" placeholder="请输入真实姓名" data-model="applyForm.name" />' +
+          '</div>' +
+          '<div class="form-row">' +
+            '<span class="form-label">手机号</span>' +
+            '<input class="form-input" type="tel" maxlength="11" value="' + esc(f.phone) + '" placeholder="用于顾问联系您" data-model="applyForm.phone" />' +
+          '</div>' +
+          '<div class="form-row">' +
+            '<span class="form-label">微信号</span>' +
+            '<input class="form-input" type="text" value="' + esc(f.wechat) + '" placeholder="选填，便于发送岗位资料" data-model="applyForm.wechat" />' +
+          '</div>' +
+          '<div class="form-row">' +
+            '<span class="form-label">性别</span>' +
+            '<div class="flex-1 row">' + genderHtml + '</div>' +
+          '</div>' +
+          '<div class="form-row">' +
+            '<span class="form-label">年龄</span>' +
+            '<input class="form-input" type="number" maxlength="2" value="' + esc(f.age) + '" placeholder="请输入周岁年龄" data-model="applyForm.age" />' +
+          '</div>' +
+          '<div class="form-row">' +
+            '<span class="form-label">备注</span>' +
+            '<input class="form-input" type="text" value="' + esc(f.note) + '" placeholder="选填：技能、出国经历等" data-model="applyForm.note" />' +
+          '</div>' +
+        '</div>' +
+
+        '<div class="tips">' +
+          '<div class="tips-title">温馨提示</div>' +
+          '<div class="tips-text">1. 您填写的信息仅用于本次岗位报名与顾问联系，不会用于其他用途；</div>' +
+          '<div class="tips-text">2. 报名成功后可在「我的 - 我的报名」中查看进度；</div>' +
+          '<div class="tips-text">3. 正规劳务服务不会在面试前收取高额费用，请勿向个人账户转账。</div>' +
+        '</div>' +
+
+        '<button class="btn btn-primary btn-block submit-btn" data-action="submit-apply" data-id="' + job.id + '">提交报名</button>' +
+      '</div>'
+  }
+
+  /* ---------- 收藏 ---------- */
+
+  function FavoritesPage() {
+    if (!store.isLoggedIn()) {
+      return '' +
+        '<div class="empty">' +
+          '<div class="empty-circle">登</div>' +
+          '<div class="empty-text">登录后查看收藏的岗位</div>' +
+          '<a class="btn btn-primary" href="#/login">去登录</a>' +
+        '</div>'
+    }
+    var jobs = store.getFavorites().map(function (id) {
+      return getJobById(id)
+    }).filter(function (j) { return !!j })
+
+    if (!jobs.length) {
+      return '' +
+        '<div class="empty">' +
+          '<div class="empty-circle">空</div>' +
+          '<div class="empty-text">还没有收藏任何岗位</div>' +
+          '<a class="btn btn-primary" href="#/jobs">去逛逛岗位</a>' +
+        '</div>'
+    }
+
+    return '' +
+      '<div class="page-pad">' +
+        jobs.map(function (job) {
+          return '' +
+            '<div class="card job-card">' +
+              '<a href="#/job/' + job.id + '">' +
+                '<div class="row-between">' +
+                  '<span class="title-md ellipsis flex-1">' + esc(job.title) + '</span>' +
+                  '<span class="country-chip">' + esc(job.countryName) + ' · ' + esc(job.city) + '</span>' +
+                '</div>' +
+                '<div class="job-salary">' +
+                  '<span class="text-salary">' + esc(job.salaryText) + '</span>' +
+                  '<span class="muted" style="margin-left:8px">' + esc(job.rmbText) + '</span>' +
+                '</div>' +
+                '<div class="job-tags">' +
+                  '<span class="tag tag-blue">' + esc(job.category) + '</span>' +
+                  '<span class="tag">' + esc(job.gender) + '</span>' +
+                  '<span class="tag">' + esc(job.ageRange) + '</span>' +
+                '</div>' +
+              '</a>' +
+              '<button class="fav-remove" data-action="remove-fav" data-id="' + job.id + '">取消收藏</button>' +
+            '</div>'
+        }).join('') +
+      '</div>'
+  }
+
+  /* ---------- 报名记录 ---------- */
+
+  function ApplicationsPage() {
+    if (!store.isLoggedIn()) {
+      return '' +
+        '<div class="empty">' +
+          '<div class="empty-circle">登</div>' +
+          '<div class="empty-text">登录后查看报名记录与进度</div>' +
+          '<a class="btn btn-primary" href="#/login">去登录</a>' +
+        '</div>'
+    }
+    var list = store.getApplications().map(function (item) {
+      var copy = {}
+      Object.keys(item).forEach(function (k) { copy[k] = item[k] })
+      copy.createdAtText = formatDate(item.createdAt)
+      return copy
+    })
+
+    if (!list.length) {
+      return '' +
+        '<div class="empty">' +
+          '<div class="empty-circle">空</div>' +
+          '<div class="empty-text">还没有报名记录，去看看心仪的岗位吧</div>' +
+          '<a class="btn btn-primary" href="#/jobs">去找岗位</a>' +
+        '</div>'
+    }
+
+    return '' +
+      '<div class="page-pad">' +
+        list.map(function (item) {
+          return '' +
+            '<div class="card apply-card">' +
+              '<div class="row-between">' +
+                '<span class="title-md ellipsis flex-1">' + esc(item.jobTitle) + '</span>' +
+                '<span class="status-badge">' + esc(item.status) + '</span>' +
+              '</div>' +
+              '<div class="muted" style="margin-top:4px">' + esc(item.countryName) + ' · ' + esc(item.city) + ' · ' + esc(item.salaryText) + '</div>' +
+              '<div class="divider"></div>' +
+              '<div class="apply-info">' +
+                '<span class="muted">报名人：' + esc(item.name) + '（' + esc(item.gender) + ' / ' + esc(item.age) + ' 岁）</span>' +
+                '<span class="muted">联系电话：' + esc(item.phone) + '</span>' +
+                (item.wechat ? '<span class="muted">微信号：' + esc(item.wechat) + '</span>' : '') +
+                (item.note ? '<span class="muted">备注：' + esc(item.note) + '</span>' : '') +
+                '<span class="muted">报名时间：' + esc(item.createdAtText) + '</span>' +
+              '</div>' +
+              '<div class="row" style="margin-top:14px">' +
+                '<a class="btn btn-plain flex-1" style="margin-right:12px" href="#/job/' + esc(item.jobId) + '">查看岗位</a>' +
+                '<a class="btn btn-outline flex-1" href="tel:' + COMPANY.phone.replace(/[^0-9+]/g, '') + '">联系顾问</a>' +
+              '</div>' +
+              '<button class="apply-cancel" data-action="cancel-apply" data-id="' + esc(item.id) + '">取消报名</button>' +
+            '</div>'
+        }).join('') +
+        '<div class="tips">' +
+          '<div class="tips-title">报名进度说明</div>' +
+          '<div class="tips-text">提交报名后，顾问将在 1 个工作日内电话联系您确认意向；面试安排、签证进度可在「我的报名」中随时查看，状态更新以顾问通知为准。</div>' +
+        '</div>' +
+      '</div>'
+  }
+
+  /* ---------- 公司资质 ---------- */
+
+  function CompanyPage() {
+    var stats = COMPANY.stats.map(function (s) {
+      return '' +
+        '<div class="stat-item">' +
+          '<span class="stat-num">' + esc(s.num) + '</span>' +
+          '<span class="stat-unit tag-orange" style="font-size:10px;margin:2px 0 0">' + esc(s.unit) + '</span>' +
+          '<span class="stat-label">' + esc(s.label) + '</span>' +
+        '</div>'
+    }).join('')
+
+    var certs = COMPANY.certs.map(function (c) {
+      return '' +
+        '<div class="cert-item">' +
+          '<span class="cert-seal">证</span>' +
+          '<div class="flex-1">' +
+            '<div class="cert-name">' + esc(c.name) + '</div>' +
+            '<div class="muted">编号：' + esc(c.no) + '</div>' +
+          '</div>' +
+        '</div>'
+    }).join('')
+
+    var services = COMPANY.services.map(function (s) {
+      return '' +
+        '<div class="card service-item">' +
+          '<div class="service-title">' + esc(s.title) + '</div>' +
+          '<div class="service-desc">' + esc(s.desc) + '</div>' +
+        '</div>'
+    }).join('')
+
+    var promises = COMPANY.promises.map(function (p) {
+      return '<div class="promise-item"><span class="promise-check"></span><span class="flex-1">' + esc(p) + '</span></div>'
+    }).join('')
+
+    var infoRows = [
+      ['统一社会信用代码', COMPANY.creditCode],
+      ['法定代表人', COMPANY.legalRep],
+      ['注册资本', COMPANY.capital],
+      ['公司类型', COMPANY.companyType],
+      ['成立日期', COMPANY.regDate],
+      ['注册地址', COMPANY.address]
+    ].filter(function (r) { return r[1] }).map(function (r) {
+      return '<div class="contact-row"><span class="contact-label">' + esc(r[0]) + '</span><span class="flex-1">' + esc(r[1]) + '</span></div>'
+    }).join('')
+
+    var phoneDigits = (COMPANY.phone || '').replace(/[^0-9+]/g, '')
+    var hasWechat = /[0-9A-Za-z]/.test(COMPANY.wechat || '')
+    var phoneRow = '<div class="contact-row">' +
+      '<span class="contact-label">咨询电话</span>' +
+      '<span class="flex-1">' + esc(COMPANY.phone || '待补充') + '</span>' +
+      (phoneDigits ? '<a class="btn btn-plain" href="tel:' + phoneDigits + '">拨打</a>' : '<span class="muted">待补充</span>') +
+      '</div>'
+    var wechatRow = '<div class="contact-row">' +
+      '<span class="contact-label">顾问微信</span>' +
+      '<span class="flex-1">' + esc(COMPANY.wechat || '待补充') + '</span>' +
+      (hasWechat ? '<button class="btn btn-plain" data-action="copy-wechat">复制</button>' : '<span class="muted">待补充</span>') +
+      '</div>'
+
+    return '' +
+      '<div class="page-pad">' +
+        '<div class="company-hero">' +
+          '<div class="company-name">' + esc(COMPANY.name) + '</div>' +
+          '<div class="company-slogan">' + esc(COMPANY.slogan) + '</div>' +
+        '</div>' +
+        '<div class="card stats-card">' + stats + '</div>' +
+        '<div class="section-header"><span class="section-title">公司简介</span></div>' +
+        '<div class="card"><div class="card-text">' + esc(COMPANY.intro) + '</div></div>' +
+        '<div class="section-header"><span class="section-title">工商登记信息</span></div>' +
+        '<div class="card">' + infoRows + '</div>' +
+        '<div class="section-header"><span class="section-title">资质证书</span></div>' +
+        '<div class="card">' + certs + '</div>' +
+        '<div class="section-header"><span class="section-title">服务内容</span></div>' +
+        '<div class="service-grid">' + services + '</div>' +
+        '<div class="section-header"><span class="section-title">服务承诺</span></div>' +
+        '<div class="card">' + promises + '</div>' +
+        '<div class="section-header"><span class="section-title">联系我们</span></div>' +
+        '<div class="card">' +
+          phoneRow +
+          wechatRow +
+          '<div class="contact-row">' +
+            '<span class="contact-label">公司地址</span>' +
+            '<span class="flex-1">' + esc(COMPANY.address) + '</span>' +
+          '</div>' +
+          '<div class="contact-row">' +
+            '<span class="contact-label">服务时间</span>' +
+            '<span class="flex-1">' + esc(COMPANY.hours || '服务时间待补充') + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="version muted text-center">成立于 ' + esc(COMPANY.founded) + ' 年 · v1.0.0</div>' +
+      '</div>'
+  }
+
+  /* ---------- 出国流程 ---------- */
+
+  function ProcessPage() {
+    var steps = getProcessSteps().map(function (s, i) {
+      return '' +
+        '<div class="timeline-item">' +
+          '<div class="timeline-left">' +
+            '<div class="timeline-dot' + (i === 0 ? ' timeline-dot-active' : '') + '">' + s.step + '</div>' +
+            (i < getProcessSteps().length - 1 ? '<div class="timeline-line"></div>' : '') +
+          '</div>' +
+          '<div class="card timeline-card">' +
+            '<div class="row-between">' +
+              '<span class="title-md flex-1">' + esc(s.title) + '</span>' +
+              '<span class="duration-badge">' + esc(s.duration) + '</span>' +
+            '</div>' +
+            '<div class="card-text" style="margin-top:6px">' + esc(s.desc) + '</div>' +
+            '<div class="docs">' +
+              '<span class="docs-label">所需：</span>' +
+              s.docs.map(function (d) { return '<span class="tag tag-blue">' + esc(d) + '</span>' }).join('') +
+            '</div>' +
+          '</div>' +
+        '</div>'
+    }).join('')
+
+    return '' +
+      '<div class="page-pad">' +
+        '<div class="muted" style="padding:4px 2px 18px;line-height:1.8">从报名到出境落地，全程专业团队跟进。以下为标准流程，各阶段所需时间因国家与岗位而异，顾问会根据您的实际情况制定专属时间表。</div>' +
+        '<div class="timeline">' + steps + '</div>' +
+        '<div class="card">' +
+          '<div class="title-md">准备好迈出第一步了吗？</div>' +
+          '<div class="muted" style="margin:8px 0 16px">提交报名后，顾问将为您免费评估匹配岗位</div>' +
+          '<a class="btn btn-primary btn-block" href="tel:' + COMPANY.phone.replace(/[^0-9+]/g, '') + '">电话咨询</a>' +
+        '</div>' +
+      '</div>'
+  }
+
+  /* ---------- 常见问题 ---------- */
+
+  function FaqPage() {
+    var faqs = getFaqs().map(function (f, i) {
+      var open = ui.faqOpen === i
+      return '' +
+        '<div class="card faq-item">' +
+          '<div class="row-between" data-action="faq-toggle" data-value="' + i + '">' +
+            '<div class="flex-1 row">' +
+              '<span class="faq-q-index">Q' + (i + 1) + '</span>' +
+              '<span class="faq-q">' + esc(f.q) + '</span>' +
+            '</div>' +
+            '<span class="faq-arrow' + (open ? ' faq-arrow-open' : '') + '"></span>' +
+          '</div>' +
+          (open ? '<div class="faq-a">' + esc(f.a) + '</div>' : '') +
+        '</div>'
+    }).join('')
+
+    return '' +
+      '<div class="page-pad">' +
+        '<div class="card notice-card">' +
+          '<div class="notice-title">收费透明承诺</div>' +
+          '<div class="notice-text">报名前顾问会出具书面《收费明细表》，逐项列明费用名称、金额与退还条件；所有费用进入公司对公账户并开具发票。面试未通过、签证未获批，按合同约定退费。</div>' +
+        '</div>' +
+        '<div>' + faqs + '</div>' +
+        '<div class="card">' +
+          '<div class="title-md">还有其他疑问？</div>' +
+          '<div class="muted" style="margin:8px 0 16px">顾问一对一免费解答，为您提供留学、职业与生活服务咨询</div>' +
+          '<div class="row">' +
+            ((COMPANY.phone || '').replace(/[^0-9+]/g, '') ? '<a class="btn btn-plain flex-1" style="margin-right:12px" href="tel:' + (COMPANY.phone || '').replace(/[^0-9+]/g, '') + '">电话咨询</a>' : '<span class="btn btn-plain flex-1" style="margin-right:12px;opacity:.55">电话待补充</span>') +
+            (/[0-9A-Za-z]/.test(COMPANY.wechat || '') ? '<button class="btn btn-primary flex-1" data-action="copy-wechat">微信咨询</button>' : '<span class="btn btn-plain flex-1" style="opacity:.55">微信待补充</span>') +
+          '</div>' +
+        '</div>' +
+      '</div>'
+  }
+
+  /* ============ 路由渲染 ============ */
+
+  var TAB_META = {
+    home: { title: '恒翔商务服务' },
+    jobs: { title: '热招岗位' },
+    news: { title: '劳务资讯' },
+    profile: { title: '我的' }
+  }
+
+  function render() {
+    clearTimers()
+    var r = parseHash(location.hash)
+    var route = r.path[0] || 'home'
+    var sub = r.path[1] || ''
+    var html = ''
+    var title = '恒翔商务服务'
+
+    switch (route) {
+      case 'home':
+        html = HomePage()
+        title = TAB_META.home.title
+        break
+      case 'jobs':
+        if (r.query.country) ui.jobsCountry = r.query.country
+        if (typeof r.query.keyword === 'string') ui.jobsKeyword = r.query.keyword
+        html = JobsPage()
+        title = TAB_META.jobs.title
+        // 查询参数已应用到 ui，清理 hash，避免用户后续点选筛选时被旧参数覆盖
+        if (r.raw !== '/jobs' && history.replaceState) {
+          history.replaceState(null, '', location.pathname + location.search + '#/jobs')
+        }
+        break
+      case 'job':
+        html = JobDetailPage(sub)
+        var job = getJobById(sub)
+        title = job ? job.title : '岗位详情'
+        break
+      case 'news':
+        if (sub) {
+          html = NewsDetailPage(sub)
+          var newsItem = getNewsById(sub)
+          title = newsItem ? newsItem.category : '资讯详情'
+        } else {
+          html = NewsPage()
+          title = TAB_META.news.title
+        }
+        break
+      case 'profile':
+        html = ProfilePage()
+        title = TAB_META.profile.title
+        break
+      case 'login':
+        html = LoginPage(r.query)
+        title = '登录'
+        break
+      case 'apply':
+        html = ApplyPage(sub)
+        title = '岗位报名'
+        break
+      case 'favorites':
+        html = FavoritesPage()
+        title = '我的收藏'
+        break
+      case 'applications':
+        html = ApplicationsPage()
+        title = '我的报名'
+        break
+      case 'company':
+        html = CompanyPage()
+        title = '公司资质'
+        break
+      case 'process':
+        html = ProcessPage()
+        title = '出国流程'
+        break
+      case 'faq':
+        html = FaqPage()
+        title = '费用说明'
+        break
+      case 'agreement':
+        html = LegalPage('agreement')
+        title = '用户服务协议'
+        break
+      case 'privacy':
+        html = LegalPage('privacy')
+        title = '隐私政策'
+        break
+      default:
+        location.hash = '#/home'
+        return
+    }
+
+    pageEl.innerHTML = html
+    document.title = title + ' - ' + (COMPANY.shortName || '恒翔商务服务')
+
+    // 顶部导航
+    var showTab = isTabRoute(route)
+    var backBtn = showTab
+      ? '<span class="topbar-placeholder"></span>'
+      : '<button class="topbar-btn back-btn" data-action="back" aria-label="返回"></button>'
+    var shareBtn = route === 'job' && sub
+      ? '<button class="topbar-btn" data-action="share" aria-label="分享"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>'
+      : '<span class="topbar-placeholder"></span>'
+    topbarEl.innerHTML = backBtn + '<span class="topbar-title' + (showTab ? '' : ' has-side') + '">' + esc(title) + '</span>' + shareBtn
+    topbarEl.style.display = 'flex'
+
+    // tab 栏
+    if (showTab) {
+      tabbarEl.style.display = 'flex'
+      var items = tabbarEl.querySelectorAll('.tabbar-item')
+      items.forEach(function (item) {
+        item.classList.toggle('active', item.getAttribute('data-route') === route)
+      })
+    } else {
+      tabbarEl.style.display = 'none'
+    }
+
+    // 页面专属行为
+    if (route === 'home') startBanner()
+    if (route === 'jobs' && r.query.focus) {
+      var input = document.getElementById('job-search')
+      if (input) input.focus()
+    }
+    window.scrollTo(0, 0)
+  }
+
+  /* ============ 事件处理 ============ */
+
+  function setByPath(obj, path, value) {
+    var parts = path.split('.')
+    var cur = obj
+    for (var i = 0; i < parts.length - 1; i++) {
+      cur = cur[parts[i]]
+      if (!cur) return
+    }
+    cur[parts[parts.length - 1]] = value
+  }
+
+  function onInput(e) {
+    var t = e.target
+    if (!t || !t.getAttribute) return
+    var model = t.getAttribute('data-model')
+    if (!model) return
+    setByPath(ui, model, t.value)
+    if (model === 'jobsKeyword') {
+      var listBox = document.getElementById('job-list')
+      if (listBox) listBox.innerHTML = jobListHtml()
+      var total = document.querySelector('.sort-total')
+      if (total) total.textContent = '共 ' + filteredJobs().length + ' 个岗位'
+      var clearBtn = document.querySelector('.search-clear')
+      if (!clearBtn && ui.jobsKeyword) {
+        var box = document.querySelector('.search-box')
+        if (box) {
+          var btn = document.createElement('button')
+          btn.className = 'search-clear'
+          btn.setAttribute('data-action', 'clear-keyword')
+          btn.textContent = '×'
+          box.appendChild(btn)
+        }
+      } else if (clearBtn && !ui.jobsKeyword) {
+        clearBtn.remove()
+      }
+    }
+  }
+
+  function doLogin() {
+    var nickname = (ui.loginForm.nickname || '').trim()
+    var phone = (ui.loginForm.phone || '').trim()
+    if (nickname.length < 2 || nickname.length > 20) {
+      showToast('请输入 2-20 个字的昵称')
+      return
+    }
+    if (!/^1\d{10}$/.test(phone)) {
+      showToast('请输入正确的 11 位手机号')
+      return
+    }
+    store.setUser({ nickname: nickname, phone: phone })
+    showToast('登录成功')
+    var redirect = ui.loginRedirect
+    ui.loginRedirect = ''
+    ui.loginForm = { nickname: '', phone: '' }
+    if (redirect) {
+      go(redirect.charAt(0) === '#' ? redirect : '#' + redirect)
+    } else {
+      go('#/profile')
+    }
+  }
+
+  function doApply(jobId) {
+    var job = getJobById(jobId)
+    if (!job) return
+    if (!store.isLoggedIn()) {
+      requireLogin('#/apply/' + job.id)
+      return
+    }
+    var f = ui.applyForm
+    if (!f.name || f.name.trim().length < 2) {
+      showToast('请输入真实姓名（至少 2 个字）')
+      return
+    }
+    if (!/^1\d{10}$/.test(f.phone)) {
+      showToast('请输入正确的 11 位手机号')
+      return
+    }
+    if (!f.gender) {
+      showToast('请选择性别')
+      return
+    }
+    if (!f.age) {
+      showToast('请输入年龄')
+      return
+    }
+    store.addApplication({
+      jobId: job.id,
+      jobTitle: job.title,
+      countryName: job.countryName,
+      city: job.city,
+      salaryText: job.salaryText,
+      name: f.name.trim(),
+      phone: f.phone,
+      wechat: f.wechat,
+      gender: f.gender,
+      age: f.age,
+      note: f.note
+    })
+    ui.applyForm = { name: '', phone: '', wechat: '', gender: '', age: '', note: '' }
+    showToast('报名成功')
+    setTimeout(function () {
+      go('#/applications')
+    }, 600)
+  }
+
+  function shareCurrent() {
+    var url = location.href
+    var title = currentJob ? currentJob.title + ' · ' + currentJob.salaryText : (COMPANY.shortName || '恒翔商务服务')
+    if (navigator.share) {
+      navigator.share({ title: title, text: title, url: url }).catch(function () {})
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () {
+        showToast('链接已复制，粘贴分享给好友')
+      }, function () { showToast('请复制地址栏链接进行分享') })
+    } else {
+      showToast('请复制地址栏链接进行分享')
+    }
+  }
+
+  function onClick(e) {
+    var actEl = e.target.closest ? e.target.closest('[data-action]') : null
+    if (!actEl) return
+    var action = actEl.getAttribute('data-action')
+    var id = actEl.getAttribute('data-id')
+    var value = actEl.getAttribute('data-value')
+
+    switch (action) {
+      case 'back':
+        if (history.length > 1) {
+          history.back()
+        } else {
+          go('#/home')
+        }
+        break
+      case 'share':
+        shareCurrent()
+        break
+      case 'copy-wechat':
+        if (!/[0-9A-Za-z]/.test(COMPANY.wechat || '')) { showToast('微信号待补充，请稍后再试'); break }
+        copyText(COMPANY.wechat)
+        break
+      case 'toggle-fav':
+        if (!requireLogin('#/job/' + id)) return
+        {
+          var faved = store.toggleFavorite(id)
+          showToast(faved ? '已加入收藏' : '已取消收藏')
+          render()
+        }
+        break
+      case 'go-apply':
+        if (!requireLogin('#/apply/' + id)) return
+        go('#/apply/' + id)
+        break
+      case 'set-gender':
+        ui.applyForm.gender = value
+        render()
+        break
+      case 'submit-login':
+        doLogin()
+        break
+      case 'submit-apply':
+        doApply(id)
+        break
+      case 'logout':
+        if (window.confirm('退出后本地收藏与报名记录仍会保留，重新登录后可查看，确定退出吗？')) {
+          store.clearUser()
+          showToast('已退出登录')
+          render()
+        }
+        break
+      case 'remove-fav':
+        if (window.confirm('确定取消收藏该岗位吗？')) {
+          store.removeFavorite(id)
+          showToast('已取消收藏')
+          render()
+        }
+        break
+      case 'cancel-apply':
+        if (window.confirm('确定取消该岗位的报名记录吗？取消后可重新报名。')) {
+          store.removeApplication(id)
+          showToast('已取消报名')
+          render()
+        }
+        break
+      case 'filter-country':
+        ui.jobsCountry = value
+        render()
+        break
+      case 'filter-category':
+        ui.jobsCategory = value
+        render()
+        break
+      case 'filter-news':
+        ui.newsCategory = value
+        renderNewsList()
+        break
+      case 'sort':
+        ui.jobsSort = value
+        render()
+        break
+      case 'clear-keyword':
+        ui.jobsKeyword = ''
+        render()
+        break
+      case 'reset-filter':
+        ui.jobsKeyword = ''
+        ui.jobsCountry = 'all'
+        ui.jobsCategory = 'all'
+        ui.jobsSort = 'new'
+        render()
+        break
+      case 'faq-toggle':
+        ui.faqOpen = ui.faqOpen === Number(value) ? -1 : Number(value)
+        render()
+        break
+      default:
+        break
+    }
+  }
+
+  function renderNewsList() {
+    var cats = getNewsCategories()
+    var chipsBox = document.querySelector('.filter-bar .filter-scroll')
+    if (chipsBox) {
+      chipsBox.innerHTML = cats.map(function (c) {
+        return '<button class="chip' + ((ui.newsCategory || '全部') === c ? ' chip-active' : '') + '" data-action="filter-news" data-value="' + esc(c) + '">' + esc(c) + '</button>'
+      }).join('')
+    }
+    var list = getNews(ui.newsCategory || '全部')
+    var box = document.querySelector('.news-list')
+    if (!box) return
+    box.innerHTML = list.map(function (n) {
+      return '' +
+        '<a class="card" href="#/news/' + n.id + '">' +
+          '<div class="row-between" style="margin-bottom:8px">' +
+            '<span class="news-category">' + esc(n.category) + '</span>' +
+            '<span class="muted">' + esc(n.date) + '</span>' +
+          '</div>' +
+          '<div class="news-title">' + esc(n.title) + '</div>' +
+          '<div class="muted ellipsis-2" style="margin-top:6px">' + esc(n.summary) + '</div>' +
+          '<div class="row-between" style="margin-top:10px">' +
+            '<span class="muted">' + esc(n.author) + '</span>' +
+            '<span class="muted">' + n.views + ' 阅读</span>' +
+          '</div>' +
+        '</a>'
+    }).join('')
+  }
+
+  /* ============ 启动 ============ */
+
+  var topbarEl = null
+  var tabbarEl = null
+
+  function boot() {
+    topbarEl = document.getElementById('topbar')
+    tabbarEl = document.getElementById('tabbar')
+    pageEl = document.getElementById('page')
+
+    if (!location.hash) {
+      location.hash = '#/home'
+    }
+    document.addEventListener('click', onClick)
+    document.addEventListener('input', onInput)
+    window.addEventListener('hashchange', render)
+    render()
+  }
+
+  if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', boot)
+    } else {
+      boot()
+    }
+  }
+
+  /* 调试 / 测试钩子 */
+  if (typeof globalThis !== 'undefined') {
+    globalThis.__APP__ = {
+      store: store,
+      parseHash: parseHash,
+      ui: ui,
+      esc: esc,
+      formatDate: formatDate,
+      KEYS: KEYS,
+      getJobs: getJobs,
+      queryJobs: queryJobs,
+      getJobById: getJobById,
+      getNews: getNews,
+      getNewsCategories: getNewsCategories,
+      getFaqs: getFaqs
+    }
+  }
+})()
+
+  </script>
+</body>
+</html>

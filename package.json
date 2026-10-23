@@ -1,0 +1,1 @@
+{"name":"maolongrui-portfolio","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node --test scripts/library.test.mjs"}}

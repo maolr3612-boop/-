@@ -5,6 +5,9 @@
   "main": "dist/server/index.js",
   "compatibility_date": "2026-10-23",
   "workers_dev": true,
+  "vars": {
+    "AUTH_PROVIDER": "cloudflare"
+  },
   "build": {
     "command": "node scripts/build.mjs"
   },

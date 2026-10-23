@@ -18,7 +18,7 @@ GitHub 仓库：`maolr3612-boop/-`，生产分支：`main`。
 
 现有线上网站使用 Sites 提供的身份认证。独立部署到 Cloudflare 后，不能信任客户端自行传入的 `oai-authenticated-user-email` 请求头，也不能关闭校验来开放编辑接口。
 
-在将独立 Cloudflare 站点投入使用前，必须部署服务端验证的身份认证（例如验证 Cloudflare Access 的 JWT、受众和签发者），并将作品写入权限限制为所有者。当前配置只准备托管与 GitHub 构建入口，未替你创建 Access 策略或登录系统。
+当前配置通过 AUTH_PROVIDER=cloudflare 将独立站点的作品编辑接口关闭，避免将浏览器自行传入的请求头当作登录身份。浏览作品不受影响。启用编辑前必须实现服务端验证的身份认证（例如验证 Cloudflare Access 的 JWT、受众和签发者），并将作品写入权限限制为所有者。不要移除此保护变量来开放编辑。当前配置只准备托管与 GitHub 构建入口，未替你创建 Access 策略或登录系统。
 
 原有 Sites 网站和云端作品数据不会随 GitHub 连接自动迁移。需要独立迁移已有记录与封面；源码中的「劳务公司」可由导入清单初始化。
 

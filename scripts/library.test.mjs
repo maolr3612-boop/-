@@ -12,4 +12,5 @@ const bad=form();bad.set('cover',new Blob(['not a picture'],{type:'image/png'}),
 assert.equal((await call(env,'/api/works/'+work.id,'DELETE')).status,200);assert.equal(env.BUCKET.store.size,baseline);assert.equal((await call(env,'/api/works/'+work.id,'PUT',form())).status,404);assert.equal((await call({},'/api/works')).status,503);
 });
 test('built website retains resume, turntable and portfolio assets',async()=>{for(const path of ['/','/library.js','/library.css','/turntable.js','/assets/maolongrui-turntable.png'])assert.equal((await call({},path)).status,200);const html=await (await call({},'/')).text();assert.ok(html.includes('个人作品库'));assert.ok(html.includes('毛龙锐'));assert.ok(html.includes('id="turntable"'));assert.equal((await call({},'/no-such-file')).status,404)});
+test('standalone Cloudflare denies spoofed Sites identity headers',async()=>{const env={AUTH_PROVIDER:'cloudflare',BUCKET:new MockBucket()};assert.equal((await(await call(env,'/api/session')).json()).canEdit,false);assert.equal((await call(env,'/api/works','POST',form())).status,403)});
 
